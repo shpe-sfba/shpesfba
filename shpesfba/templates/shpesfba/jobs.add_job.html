@@ -1,0 +1,138 @@
+{% extends "shpesfba/jobs.html" %}
+{% load static %}
+{% block title %}
+    Add Job Listing
+{% endblock %}
+{% block styles %}
+    <link rel="stylesheet" href="{% static "css/jquery-ui.min.css" %}"/>
+    <link rel="stylesheet" href="{% static "css/jquery-ui.min.css" %}"/>
+{% endblock %}
+{% block job_content %}
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Add a Job</h1>
+            <form method="post" action="{% url 'jobs.add-job' %}" class="col-md-12">
+                {% csrf_token %}
+                <fieldset>
+                    <legend>Job Details</legend>
+                    {% for error in form.non_field_errors %}
+                        <div class="alert alert-danger">
+                            {{ error|escape }}
+                        </div>
+                    {% endfor %}
+
+                    <div class="form-group {% if form.title.errors %}has-errors{% endif %}">
+
+                        {% for error in form.title.errors %}
+                            <div class="alert alert-danger">
+                                {{ error|escape }}
+                            </div>
+                        {% endfor %}
+
+                        <label for="title">Job Title</label>
+                        <input type="text" id="title" name="title" value="{{ form.title.value|default_if_none:"" }}"
+                               class="form-control"/>
+                    </div>
+
+                    <div class="form-group {% if form.location.errors %}has-errors{% endif %}">
+
+                        {% for error in form.location.errors %}
+                            <div class="alert alert-danger">
+                                {{ error|escape }}
+                            </div>
+                        {% endfor %}
+
+                        <label for="location">Job Location</label>
+                        <input type="text" id="location" name="location" value="{{ form.location.value|default_if_none:"" }}"
+                               class="form-control"/>
+                    </div>
+
+                    <div class="form-group {% if form.description.errors %}has-errors{% endif %}">
+
+                        {% for error in form.description.errors %}
+                            <div class="alert alert-danger">
+                                {{ error|escape }}
+                            </div>
+                        {% endfor %}
+
+                        <label for="description">Job Description</label>
+                        <textarea id="description" name="description" class="form-control" rows="8">{{ form.description.value|default_if_none:"" }}</textarea>
+                    </div>
+
+                    <div class="form-group {% if form.expiration_date.errors %}has-errors{% endif %}">
+
+                        {% for error in form.expiration_date.errors %}
+                            <div class="alert alert-danger">
+                                {{ error|escape }}
+                            </div>
+                        {% endfor %}
+
+                        <label for="expiration_date">Job Expiration Date</label>
+                        <input type="text" id="expiration_date" name="expiration_date" value="{{ form.expiration_date.value|default_if_none:"" }}"
+                               class="form-control"/>
+                    </div>
+
+                    <div class="form-group {% if form.company_name.errors %}has-errors{% endif %}">
+
+                        {% for error in form.company_name.errors %}
+                            <div class="alert alert-danger">
+                                {{ error|escape }}
+                            </div>
+                        {% endfor %}
+
+                        <label for="company_name">Company Name</label>
+                        <input type="text" id="company_name" name="company_name" value="{{ form.company_name.value|default_if_none:"" }}"
+                               class="form-control"/>
+                    </div>
+
+                    <div class="form-group {% if form.company_url.errors %}has-errors{% endif %}">
+
+                        {% for error in form.company_url.errors %}
+                            <div class="alert alert-danger">
+                                {{ error|escape }}
+                            </div>
+                        {% endfor %}
+
+                        <label for="company_url">Company URL</label>
+                        <input type="text" id="company_url" name="company_url" value="{{ form.company_url.value|default_if_none:"" }}"
+                               class="form-control"/>
+                    </div>
+
+                    <div class="form-group {% if form.company_blurb.errors %}has-errors{% endif %}">
+
+                        {% for error in form.company_blurb.errors %}
+                            <div class="alert alert-danger">
+                                {{ error|escape }}
+                            </div>
+                        {% endfor %}
+
+                        <label for="company_blurb">Company Blurb</label>
+                        <textarea id="company_blurb" name="company_blurb" class="form-control" rows="8">{{ form.company_blurb.value|default_if_none:"" }}</textarea>
+                    </div>
+
+                    <div class="form-group {% if form.contact_email.errors %}has-errors{% endif %}">
+
+                        {% for error in form.contact_email.errors %}
+                            <div class="alert alert-danger">
+                                {{ error|escape }}
+                            </div>
+                        {% endfor %}
+
+                        <label for="contact_email">Contact Email</label>
+                        <input type="text" id="contact_email" name="contact_email" value="{{ form.contact_email.value|default_if_none:"" }}"
+                               class="form-control"/>
+                    </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary"/>
+                </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+{% block scripts %}
+    <script src="{% static "js/jquery-ui.min.js" %}"></script>
+    <script>
+    $("#expiration_date").datepicker();
+    </script>
+{% endblock %}

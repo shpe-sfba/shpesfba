@@ -1,0 +1,32 @@
+{% extends "shpesfba/jobs.html" %}
+{% block title %}
+    Job Listings
+{% endblock %}
+{% block job_content %}
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Jobs</h1>
+        </div>
+        {% if jobs %}
+            {% for job in jobs %}
+                <div class="col-md-12 job-post">
+                    <h3>
+                        <a href="{% url "jobs.job-detail" job.pk %}">{{ job.title }}</a>
+                    </h3>
+                    <p>
+                        <strong>
+                            <a href="{{ job.company_url }}" target="_blank">{{ job.company_name }}</a><br/>
+                            {{ job.location }}
+                        </strong><br/>
+                        <span class="glyphicon glyphicon-envelope"></span>
+                        <a href="">
+                            {{ job.contact_email }}
+                        </a>
+                    </p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <h3 class="text-center"><em>There are no jobs currently posted.</em></h3>
+        {% endif %}
+    </div>
+{% endblock %}

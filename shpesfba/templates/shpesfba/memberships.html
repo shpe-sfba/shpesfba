@@ -1,0 +1,29 @@
+{% extends "shpesfba/base.html" %}
+{% block title %}
+    Membership
+{% endblock %}
+{% block content %}
+    <div class="container-fluid">
+        <div id="headline-min" class="row">
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="col-md-12">
+            <h1>Membership Classification</h1>
+
+            {% for membership in memberships %}
+                <div class="row">
+                    <div class="membershipLevel col-sm-12">
+                        <div class="head">
+                            {{ membership.title }} <span> {{ membership.price }}</span>
+                        </div>
+                        <div>
+                            <p>{{ membership.description }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

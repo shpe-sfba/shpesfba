@@ -1,0 +1,30 @@
+{% extends "shpesfba/base.html" %}
+{% load nav_active %}
+{% block content %}
+    <div class="container-fluid">
+        <div id="headline-min" class="row">
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="col-md-2">
+            <h2>About Us</h2>
+            <div class="list-group">
+                <a class="list-group-item {% nav_active "about.executive-board" "active" %}"
+                   href="{% url "about.executive-board" %}">
+                    Executive Board
+                </a>
+                <a class="list-group-item {% nav_active "about.chapter" "active" %}" href="{% url "about.chapter" %}">Chapter
+                    History</a>
+                <a class="list-group-item {% nav_active "about.bylaws" "active" %}" href="{% url "about.bylaws" %}">Our
+                    Bylaws</a>
+                <a class="list-group-item {% nav_active "about.shpe" "active" %}" href="{% url "about.shpe" %}">SHPE
+                    Inc.</a>
+            </div>
+        </div>
+        <div class="col-md-10">
+            {% block about_content %}
+            {% endblock %}
+        </div>
+    </div>
+{% endblock %}

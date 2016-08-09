@@ -1,0 +1,27 @@
+{% extends "shpesfba/base.html" %}
+{% load nav_active %}
+{% block content %}
+    <div class="container-fluid">
+        <div id="headline-min" class="row">
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="col-md-3">
+            <h2>Jobs</h2>
+            <div class="list-group">
+                <a class="list-group-item {% nav_active "jobs.job-listings" "active" %}"
+                   href="{% url "jobs.job-listings" %}">
+                    Job Listings
+                </a>
+                <a class="list-group-item {% nav_active "jobs.add-job" "active" %}" href="{% url "jobs.add-job" %}">
+                    Employers: List Your Job</a>
+            </div>
+        </div>
+        <div class="col-md-9">
+            {% block job_content %}
+            {% endblock %}
+        </div>
+    </div>
+
+{% endblock %}

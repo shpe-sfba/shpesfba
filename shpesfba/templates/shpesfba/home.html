@@ -1,0 +1,65 @@
+{% extends "shpesfba/base.html" %}
+{% block title %}
+    Home
+{% endblock %}
+{% block content %}
+    <div class="container-fluid">
+        <div id="headline" class="row">
+            <h1 class="text-center">San Francisco Bay Area<br/>Society of Hispanic Professional Engineers</h1>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center">What is SHPE?</h1>
+                <p>The society of Hispanic Professional Engineers (SHPE) was founded in Los Angeles, California, in 1974
+                    by
+                    a
+                    group of engineers employed by the city of Los Angeles. Their objective was to form a national
+                    organization
+                    of professional engineers to serve as role models in the Hispanic Community.</p>
+                <p>The concept of Networking was the key basis for the organization. SHPE quickly established two
+                    student
+                    chapters to begin the network that would grow to encompass the nation as well as reach countries
+                    outside
+                    of
+                    the United States. Today, SHPE enjoys a strong but independent network of professionals and student
+                    chapters
+                    throughout the nation.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h1 class="text-center">Upcoming Events</h1>
+                {% if events %}
+                    {% for event in events %}
+                        <h4><a href="https://facebook.com/event/{{ event.fb_id }}" target="_blank">{{ event.title }}
+                            <small>{{ event.date | date:'N j, g:i A' }} at {{ event.location }}</small>
+                        </a></h4>
+                        <p>{{ event.description }}</p>
+                        <hr/>
+                    {% endfor %}
+                {% else %}
+                    <p class="text-center"><em>No upcoming events</em></p>
+                {% endif %}
+                <p class="text-center">
+                    <button class="btn btn-default">View Past Events</button>
+                </p>
+            </div>
+            <div class="col-md-6">
+                <h1 class="text-center">Membership</h1>
+                <p>Membership is open to all individuals who believe in the mission and goals set forth by the
+                    organization.
+                    SF Bay Area SHPE does not discriminate based on occupation, ethnicity, or any other classification.
+                    The
+                    chapter welcomes individuals and corporations alike to join together to fufill the mission and goals
+                    of
+                    SF Bay Area SHPE.</p>
+                <p class="text-center">
+                    <button class="btn btn-primary">Learn More</button>
+                </p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

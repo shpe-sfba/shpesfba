@@ -1,0 +1,35 @@
+{% extends "shpesfba/about.html" %}
+{% load static %}
+{% block title %}
+    Executive Board
+{% endblock %}
+{% block about_content %}
+    <div class="row">
+        <h1>Executive Board</h1>
+        <div class="row">
+
+            {% for officer in officers %}
+
+                {% if forloop.counter|divisibleby:4 %}
+                    {# End previous row and start new row #}
+                    </div><div class="row">
+                {% endif %}
+
+                <div class="col-md-4 officer">
+                    <div class="thumbnail">
+                        <img src="{{ officer.photo.url }}"/>
+                        <div class="caption">
+                            <h4>{{ officer.name_first }} {{ officer.name_last }}</h4>
+                            <h5>{{ officer.role.title }}</h5>
+                            <p><i class="glyphicon glyphicon-envelope"></i> {{ officer.role.email }}</p>
+                            <p>
+                                {{ officer.bio }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            {# End row #}
+            </div>
+    </div>
+{% endblock %}

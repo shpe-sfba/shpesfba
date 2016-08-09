@@ -1,0 +1,97 @@
+{% extends "shpesfba/base.html" %}
+{% block title %}
+    Contact Us
+{% endblock %}
+{% block content %}
+
+    <div class="container-fluid">
+        <div id="headline-min" class="row">
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="col-md-12">
+            <h1>Contact Us</h1>
+            {% if success %}
+                <div class="alert alert-success">
+                    <strong>Message sent.</strong> Thank you for your message. We will respond as soon as possible.
+                </div>
+            {% endif %}
+            <p>Have any questions or comments? Take a look at FAQs at the bottom of the page or use the form below to
+                let us know.</p>
+            <p>&nbsp;</p>
+            <div class="row">
+                <form method="post" action="{% url 'contact' %}" class="col-md-6">
+                    {% csrf_token %}
+                    <fieldset>
+                        <legend>Send Us a Message</legend>
+
+                        {% for error in form.non_field_errors %}
+                            <div class="alert alert-danger">
+                                {{ error|escape }}
+                            </div>
+                        {% endfor %}
+
+                        <div class="form-group {% if form.message_type.errors %}has-error{% endif %}">
+
+                            {% for error in form.message_type.errors %}
+                                <div class="alert alert-danger">
+                                    {{ error|escape }}
+                                </div>
+                            {% endfor %}
+
+                            <label for="message_type">Reason for Contact</label>
+                            <select name="message_type" id="message_type" class="form-control">
+                                {% for x,y in form.fields.message_type.choices %}
+                                    <option
+                                            value="{{ x }}"
+                                            {% if form.message_type.value|add:"0" == x %}
+                                            selected="selected"
+                                            {% endif %}
+                                    >{{ y }}</option>
+                                {% endfor %}
+                            </select>
+
+                        </div>
+
+                        <div class="form-group {% if form.name.errors %}has-error{% endif %}">
+                            {% for error in form.name.errors %}
+                                <div class="alert alert-danger">
+                                    {{ error|escape }}
+                                </div>
+                            {% endfor %}
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" value="{{ form.name.value|default_if_none:"" }}"
+                                   class="form-control"/>
+
+                        </div>
+                        <div class="form-group {% if form.email.errors %}has-errors{% endif %}">
+                            {% for error in form.email.errors %}
+                                <div class="alert alert-danger">
+                                    {{ error|escape }}
+                                </div>
+                            {% endfor %}
+                            <label for="email">Your Email</label>
+                            <input type="text" id="email" name="email" value="{{ form.email.value|default_if_none:"" }}"
+                                   class="form-control"/>
+                        </div>
+                        <div class="form-group {% if form.message.errors %}has-errors{% endif %}">
+                            {% for error in form.message.errors %}
+                                <div class="alert alert-danger">
+                                    {{ error|escape }}
+                                </div>
+                            {% endfor %}
+                            <label for="message">Question/Comment</label>
+                            <textarea id="message" name="message" class="form-control" rows="8">
+                                {{ form.message.value|default_if_none:"" }}
+                            </textarea>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-primary"/>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
