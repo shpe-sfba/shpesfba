@@ -3,3 +3,4 @@ db.sqlite3
 newevents.json
 uploads/
 .env
+venv/
