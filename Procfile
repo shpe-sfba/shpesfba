@@ -1,1 +1,1 @@
-web: gunicorn shpsfbasite.wsgi --log-file -
+web: gunicorn shpesfbasite.wsgi --log-file -
