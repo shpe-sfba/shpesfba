@@ -1,12 +1,14 @@
 import datetime
-
+from django.core.mail import send_mail
 from django.shortcuts import render, get_object_or_404
+from django.utils import timezone
 
 from shpesfba.models import Officer, Event, JobPosting, Membership, MessageForm, JobPostingForm
 
 
 def index(request):
-    events = Event.objects.filter(date__gte=datetime.datetime.today()).order_by('date')
+    dt = datetime.datetime.now().replace(hour=0, minute=0, second=0)
+    events = Event.objects.filter(date__gte=timezone.make_aware(dt)).order_by('date')
     context = {
         'events': events
     }
@@ -22,7 +24,7 @@ def executive_board(request):
 
 
 def job_listings(request):
-    jobs = JobPosting.objects.all()
+    jobs = JobPosting.objects.filter(approved=True).order_by('-expiration_date')
     context = {
         'jobs': jobs
     }
@@ -60,10 +62,30 @@ def contact(request):
         form = MessageForm(request.POST)
         if form.is_valid():
             form.save()
+            msg = "From: {} <{}>\r\nType: {}\r\n\r\n{}".format(form.cleaned_data['name'], form.cleaned_data['email'],
+                                                               form.cleaned_data['message_type'].title,
+                                                               form.cleaned_data['message'])
+
+            send_notice('Message from SHPE SF BA Site', msg)
+
             form = MessageForm()
+
             return render(request, 'shpesfba/contact.html', {'form': form, 'success': True})
 
     else:
         form = MessageForm()
 
     return render(request, 'shpesfba/contact.html', {'form': form})
+
+
+def send_notice(subject, msg):
+    msg_from = 'webmaster@shpesfba.org'
+    to = ['webmaster@shpesfba.org']
+
+    send_mail(
+        subject,
+        msg,
+        msg_from,
+        to,
+        fail_silently=True,
+    )
