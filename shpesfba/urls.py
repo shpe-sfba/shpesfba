@@ -15,7 +15,8 @@ urlpatterns = [
 
     url(r'^about/?$', RedirectView.as_view(url='/about/executive-board', permanent=False), name='about'),
     url(r'^about/executive-board/?$', views.executive_board, name='about.executive-board'),
-    url(r'^about/chapter-history/?$', TemplateView.as_view(template_name='shpesfba/about.chapter.html'), name='about.chapter'),
+    url(r'^about/chapter-history/?$', TemplateView.as_view(template_name='shpesfba/about.chapter.html'),
+        name='about.chapter'),
     url(r'^about/SHPE/?$', TemplateView.as_view(template_name='shpesfba/about.shpe.html'), name='about.shpe'),
     url(r'^about/bylaws/?$', TemplateView.as_view(template_name='shpesfba/about.bylaws.html'), name='about.bylaws'),
 ]
