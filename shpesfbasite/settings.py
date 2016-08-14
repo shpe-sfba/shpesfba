@@ -21,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'm96r#86^iryd15*)(-6tj*ryts*!__ae0q$$6w%cuv=j%p*j#i'
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -135,3 +135,9 @@ MEDIA_URL = '/uploads/'
 STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
+
+EMAIL_HOST = os.environ['SMTP_SERVER']
+EMAIL_PORT = 465
+EMAIL_HOST_USER = os.environ['SMTP_USER']
+EMAIL_HOST_PASSWORD = os.environ['SMTP_PASSWORD']
+EMAIL_USE_SSL = True
