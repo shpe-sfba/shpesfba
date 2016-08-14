@@ -680,3 +680,7 @@ a.navigation {
     top: 0;
     z-index: 100
 }
+
+#credit {
+    padding-top:40px;
+}
