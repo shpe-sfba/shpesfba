@@ -4,3 +4,4 @@ newevents.json
 uploads/
 .env
 venv/
+.DS_Store
