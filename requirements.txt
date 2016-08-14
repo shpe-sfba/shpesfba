@@ -1,5 +1,5 @@
-django>=1.10
+dj-database-url==0.4.1
+Django==1.10
+gunicorn==19.6.0
 Pillow==2.4.0
-gunicorn
-dj_database_url
-psycopg2==2.6.1
+whitenoise==3.2.1

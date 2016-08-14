@@ -5,6 +5,7 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <title>{% block title %}{% endblock %} - SHPE SF Bay Area</title>
     <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}"/>
     <link rel="stylesheet" href="{% static "css/shpe.css" %}"/>
@@ -20,7 +21,7 @@
                     class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
 
             <a href="/" class="navbar-brand" id="shpelogo">
-                <img src="http://shpesfba.org/images/nav_logo.png">
+                <img src="/static/img/nav_logo.png">
             </a>
         </div>
 
@@ -29,7 +30,7 @@
                 <li class="{% nav_active 'index' 'active' %}"><a href="/">Home</a></li>
                 <li class="{% nav_active 'membership' 'active' %}"><a href="{% url "membership" %}">Membership</a></li>
                 <li class="{% nav_active 'jobs' 'active' %}"><a href="{% url "jobs" %}">Job Listings</a></li>
-                <li class="{% nav_active 'ss' 'active' %}"><a href="gallery">Photos</a></li>
+                <li class=""><a href="https://get.google.com/u/0/albumarchive/102966762992057412391" target="_blank">Photos</a></li>
                 <li class="{% nav_active 'about' 'active' %}"><a href="{% url "about" %}">About</a></li>
                 <li class="{% nav_active 'contact' 'active' %}"><a href="{% url "contact" %}">Contact</a></li>
             </ul>
@@ -45,16 +46,16 @@
         <div class="row">
             <div class="col-md-6">
                 <h4>Connect with us</h4>
-                <p class="social-link"><a href="#"> <img src="{% static "img/facebook-icon-small.png" %}">Facebook</a>
+                <p class="social-link"><a href="https://www.facebook.com/groups/120819351271743/" target="_blank"> <img src="{% static "img/facebook-icon-small.png" %}">Facebook</a>
                 </p>
-                <p class="social-link"><a href="#"> <img src="{% static "img/instagram-icon-small.png" %}">Instagram</a>
+                <p class="social-link"><a href="https://www.instagram.com/shpesfba/" target="_blank"> <img src="{% static "img/instagram-icon-small.png" %}">Instagram</a>
                 </p>
             </div>
             <div class="col-md-6">
                 <h4>SHPE Resources</h4>
-                <p><a href="">SHPE Inc.</a></p>
-                <p><a href="">SHPE Foundation</a></p>
-                <p><a href="">SHPE Connect</a></p>
+                <p><a href="http://www.shpe.org/" target="_blank">SHPE Inc.</a></p>
+                <p><a href="http://www.shpefoundation.org/" target="_blank">SHPE Foundation</a></p>
+                <p><a href="https://www.shpeconnect.org" target="_blank">SHPE Connect</a></p>
             </div>
         </div>
     </div>
