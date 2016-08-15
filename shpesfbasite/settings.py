@@ -28,7 +28,10 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
       'localhost',
-      '205.185.120.249'
+      '205.185.120.249',
+      'www.shpesfba.org',
+      'shpesfba.org',
+      'shpe.luiscuellar.com'
       ]
 
 
