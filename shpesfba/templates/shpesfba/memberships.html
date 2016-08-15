@@ -12,6 +12,8 @@
         <div class="col-md-12">
             <h1>Membership Classification</h1>
 
+            <p>Below is a listing of all available membership types. <a href="https://www.shpeconnect.org" target="_blank">Click here to apply</a></p>
+
             {% for membership in memberships %}
                 <div class="row">
                     <div class="membershipLevel col-sm-12">
@@ -19,7 +21,7 @@
                             {{ membership.title }} <span> {{ membership.price }}</span>
                         </div>
                         <div>
-                            <p>{{ membership.description }}</p>
+                            <p>{{ membership.description | linebreaksbr}}</p>
                         </div>
                     </div>
                 </div>

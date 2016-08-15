@@ -9,12 +9,6 @@
         <div class="row">
 
             {% for officer in officers %}
-
-                {% if forloop.counter|divisibleby:4 %}
-                    {# End previous row and start new row #}
-                    </div><div class="row">
-                {% endif %}
-
                 <div class="col-md-4 officer">
                     <div class="thumbnail">
                         <img src="{{ officer.photo.url }}"/>
@@ -28,6 +22,12 @@
                         </div>
                     </div>
                 </div>
+
+                {% if forloop.counter|divisibleby:3 %}
+                    {# End previous row and start new row #}
+                    </div><div class="row">
+                {% endif %}
+
             {% endfor %}
             {# End row #}
             </div>

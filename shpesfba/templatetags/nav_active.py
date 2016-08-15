@@ -13,6 +13,9 @@ def nav_active(context, pattern_or_urlname, css_class):
     except NoReverseMatch:
         pattern = pattern_or_urlname
 
+    if 'request' not in context:
+        return ''
+
     path = context['request'].path
 
     if path in ('', '/') and pattern_or_urlname == 'index':

@@ -1,0 +1,41 @@
+{% extends "shpesfba/base.html" %}
+{% block title %}
+   {{ job.title }} at {{ job.company_name }}
+{% endblock %}
+{% block content %}
+    <div class="container-fluid">
+        <div id="headline-min" class="row">
+        </div>
+    </div>
+
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12">
+            <ol class="breadcrumb">
+              <li><a href="{% url "jobs.job-listings" %}">Jobs</a></li>
+              <li class="active">{{ job.title}} at {{ job.company_name }}</li>
+            </ol>
+         <h1>{{ job.title }}</h1>
+         <p>
+             <a href="{{ job.company_url }}" target="_blank">{{ job.company_name }}</a>
+             {{ job.location }}
+         </p>
+         <p>{{ job.description|linebreaksbr }}
+         <h2>About {{job.company_name}}</h3>
+         <p>{{ job.company_blurb|linebreaksbr }}</p>
+         <p>
+          <a href="{{ job.company_url }}" target="_blank">{{ job.company_name }}</a><br/>
+         </p>
+         <h3>Apply</h3>
+         <p>
+         <span class="glyphicon glyphicon-envelope"></span>
+         <a href="mailto:{{ job.contact_email }}">
+             {{ job.contact_email }}
+         </a>
+         </p>
+      </div>
+   </div>
+   </div>
+
+
+{% endblock %}

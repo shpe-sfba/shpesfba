@@ -1,7 +1,9 @@
 import datetime
 from django.core.mail import send_mail
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.contrib import messages
 
 from shpesfba.models import Officer, Event, JobPosting, Membership, MessageForm, JobPostingForm
 
@@ -24,7 +26,8 @@ def executive_board(request):
 
 
 def job_listings(request):
-    jobs = JobPosting.objects.filter(approved=True).order_by('-expiration_date')
+    dt = datetime.datetime.now().replace(hour=0, minute=0, second=0)
+    jobs = JobPosting.objects.filter(approved=True, expiration_date__gte=timezone.make_aware(dt)).order_by('-expiration_date')
     context = {
         'jobs': jobs
     }
@@ -41,8 +44,8 @@ def add_job(request):
         form = JobPostingForm(request.POST)
         if form.is_valid():
             form.save()
-            form = JobPostingForm()
-            return render(request, 'shpesfba/jobs.add_job.html', {'form': form, 'success': True})
+            messages.success(request, 'Job submitted successfully. Please give us a few days to review it for posting.', extra_tags='alert-success')
+            return redirect('jobs.add-job')
     else:
         form = JobPostingForm()
 
@@ -62,20 +65,43 @@ def contact(request):
         form = MessageForm(request.POST)
         if form.is_valid():
             form.save()
-            msg = "From: {} <{}>\r\nType: {}\r\n\r\n{}".format(form.cleaned_data['name'], form.cleaned_data['email'],
+            msg = "From: {} <{}>\r\nType: {} ({})\r\n\r\n{}".format(form.cleaned_data['name'], form.cleaned_data['email'],
                                                                form.cleaned_data['message_type'].title,
+                                                               form.cleaned_data['message_type'].responsible_officer_role.email,
                                                                form.cleaned_data['message'])
 
             send_notice('Message from SHPE SF BA Site', msg)
-
-            form = MessageForm()
-
-            return render(request, 'shpesfba/contact.html', {'form': form, 'success': True})
+            messages.success(request, 'Message sent successfully. We\'ll reply as soon as possible.', extra_tags='alert-success')
+            return redirect('contact')
 
     else:
         form = MessageForm()
 
     return render(request, 'shpesfba/contact.html', {'form': form})
+
+
+def past_events(request):
+    events_list = Event.objects.all()
+    paginator = Paginator(events_list, 10)
+
+    page = request.GET.get('page')
+
+    try:
+        events = paginator.page(page)
+        page = int(page)
+    except PageNotAnInteger:
+        events = paginator.page(1)
+        page = 1
+    except EmptyPage:
+        events = paginator.page(paginator.num_pages)
+        page = paginator.num_pages
+
+    context = {
+        'events': events,
+        'pagesBefore': range(1, page),
+        'pagesAfter': range(page + 1, paginator.num_pages + 1)
+    }
+    return render(request, 'shpesfba/about.past-events.html', context)
 
 
 def send_notice(subject, msg):

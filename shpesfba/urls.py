@@ -19,4 +19,5 @@ urlpatterns = [
         name='about.chapter'),
     url(r'^about/SHPE/?$', TemplateView.as_view(template_name='shpesfba/about.shpe.html'), name='about.shpe'),
     url(r'^about/bylaws/?$', TemplateView.as_view(template_name='shpesfba/about.bylaws.html'), name='about.bylaws'),
+    url(r'^about/past-events/?$', views.past_events, name='about.past-events'),
 ]
