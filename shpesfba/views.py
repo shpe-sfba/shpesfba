@@ -5,7 +5,7 @@ from django.utils import timezone
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib import messages
 
-from shpesfba.models import Officer, Event, JobPosting, Membership, MessageForm, JobPostingForm
+from shpesfba.models import Officer, Event, JobPosting, Membership, MessageForm, MessageType, JobPostingForm
 
 
 def index(request):
@@ -75,7 +75,13 @@ def contact(request):
             return redirect('contact')
 
     else:
-        form = MessageForm()
+
+        if request.GET.get('action', None) == 'mailing_list':
+            message_type = MessageType.objects.get(title='Join our Mailing List')
+            form = MessageForm(initial = {'message_type':message_type.pk})
+        else:
+            form = MessageForm()
+
 
     return render(request, 'shpesfba/contact.html', {'form': form})
 
