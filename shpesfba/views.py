@@ -87,7 +87,7 @@ def contact(request):
 
 
 def past_events(request):
-    events_list = Event.objects.all()
+    events_list = Event.objects.all().order_by('-date')
     paginator = Paginator(events_list, 10)
 
     page = request.GET.get('page')

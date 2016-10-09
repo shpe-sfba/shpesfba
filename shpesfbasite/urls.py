@@ -18,5 +18,5 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^', include('shpesfba.urls')),
-    url(r'^shpeadmin/', admin.site.urls),
+    url(r'^sadmin/', admin.site.urls),
 ]

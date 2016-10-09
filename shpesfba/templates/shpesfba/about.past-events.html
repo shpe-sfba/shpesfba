@@ -6,10 +6,10 @@
 <h1>Past Events</h1>
 {% if events %}
   {% for event in events %}
-      <h4><a href="https://facebook.com/event/{{ event.fb_id }}" target="_blank">{{ event.title }}
-          <small>{{ event.date | date:'N j, g:i A' }} at {{ event.location }}</small>
+      <h4><a href="https://facebook.com/events/{{ event.fb_id }}" target="_blank">{{ event.title }}
+          <small>{{ event.date | date:'N j, g:i A Y' }} at {{ event.location }}</small>
       </a></h4>
-      <p>{{ event.description }}</p>
+      <p>{{ event.description | safe | linebreaksbr }}</p>
       <hr/>
   {% endfor %}
 <nav aria-label="Events pages">

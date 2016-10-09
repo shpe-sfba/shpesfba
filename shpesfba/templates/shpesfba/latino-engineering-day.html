@@ -1,0 +1,54 @@
+{% extends "shpesfba/base.html" %}
+{% load static %}
+{% block title %}
+    Latino Engineering Day at Exploratorium
+{% endblock %}
+{% block content %}
+<div class="container-fluid">
+  <div id="headline-min" class="row">
+  </div>
+</div>
+<div class="container">
+
+<h1>Latino Engineering Day / Día de la Ingeniería</h1>
+<div class="row">
+   <div class="col-md-6">
+      <img class="img-thumbnail" src="{% static "img/latino-engineering-day.png" %}" alt="Latino Engineering Day"/>
+   </div>
+   <div class="col-md-6">
+      <h4>English</h4>
+      <p>The Society of Hispanic Professional Engineers (SHPE) invites you to a special day at the Exploratorium. Join engineers
+      and Exploratorium staff for a full day of lively, bilingual programs for families and children. Interact with Latino engineers during a panel hosted by the Society of Hispanic Professional Engineers. Experience some of the many ways that engineering shapes our world, and enjoy lots of hands-on activities for visitors of all ages.</p>
+      <p>
+      Sunday, Sept. 25, 2016, 10:00 a.m.—5:00 p.m. Pier 15 (on the Embarcadero at Green Street)<br/>
+      For general museum information: 415.528.4444<br/>
+      For directions: <a href="http://exploratorium.edu/visit/location-directions" target="_blank">exploratorium.edu/visit/location-directions</a><br/>
+      Public transit is your best option.<br/>
+      </p>
+      <p class="text-center">
+      <a href="{% static "docs/Latino Engineering Day_Exploratorium_SHPESFBA_25SEP2016.pdf"%}" class="btn btn-primary">
+         <i class="glyphicon glyphicon-download-alt"></i>
+         Bring this flyer for free admission.
+      </a>
+      </p>
+      <hr/>
+      <h4>Español</h4>
+      <p>
+      La Sociedad de Ingenieros Profesionales Hispanos (SHPE) le invita a un día especial en el Exploratorium. Únase a ingenieros latinos y educadores del Exploratorium para un día repleto de programas bilingües y divertidos para niños y toda la familia. Interactúe con ingenieros latinos en un panel presentado por la Sociedad de Ingenieros Profesionales Hispanos. Disfrute de las variadas maneras en que la ingeniería moldea a nuestro mundo a través de muchas exhibiciones interactivas para visitantes de todas las edades.
+      </p>
+      <p>
+      Domingo, 25 de septiembre, 2016 de 10:00 a.m. a 5:00 p.m. Pier 15 (en el Embarcadero esquina Green Street)<br/>
+      Para más información, llame al: 415.528.4800<br/>
+      El transporte público es su mejor opción para llegar al museo.<br/>
+      Para información sobre opciones de transporte y estacionamiento (en inglés): <a href="http://exploratorium.edu/visit/location-directions" target="_blank">exploratorium.edu/visit/location-directions</a><br/>
+      </p>
+      <p class="text-center">
+      <a href="{% static "docs/Latino Engineering Day_Exploratorium_SHPESFBA_25SEP2016.pdf"%}" class="btn btn-primary">
+         <i class="glyphicon glyphicon-download-alt"></i>
+         Presente este volante para obtener entrada gratuita.
+      </a>
+      </p>
+   </div>
+</div>
+</div>
+{% endblock %}
