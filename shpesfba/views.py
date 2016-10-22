@@ -5,7 +5,7 @@ from django.utils import timezone
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib import messages
 
-from shpesfba.models import Officer, Event, JobPosting, Membership, MessageForm, MessageType, JobPostingForm
+from shpesfba.models import Officer, Event, JobPosting, Membership, MessageForm, MessageType, JobPostingForm, Gallery
 
 
 def index(request):
@@ -121,3 +121,11 @@ def send_notice(subject, msg):
         to,
         fail_silently=True,
     )
+
+
+def gallery(request):
+    galleries = Gallery.objects.all().order_by('-date_created')
+    context = {
+        'galleries': galleries
+    }
+    return render(request, 'shpesfba/gallery.html', context)

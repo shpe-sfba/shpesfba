@@ -1,4 +1,6 @@
+from django.conf import settings
 from django.conf.urls import url
+from django.conf.urls.static import static
 from django.views.generic import TemplateView
 from django.views.generic.base import RedirectView
 
@@ -12,6 +14,7 @@ urlpatterns = [
     url(r'^jobs/add-job/?$', views.add_job, name='jobs.add-job'),
     url(r'^membership/?$', views.membership, name='membership'),
     url(r'^contact/?$', views.contact, name='contact'),
+    url(r'^gallery/?$', views.gallery, name='gallery'),
 
     url(r'^about/?$', RedirectView.as_view(url='/about/executive-board', permanent=False), name='about'),
     url(r'^about/executive-board/?$', views.executive_board, name='about.executive-board'),
@@ -23,3 +26,8 @@ urlpatterns = [
 
     url(r'latino-engineering-day/?$', TemplateView.as_view(template_name='shpesfba/latino-engineering-day.html'), name='latino-engineering-day')
 ]
+
+## debug stuff to serve static media
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+

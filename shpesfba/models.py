@@ -1,7 +1,12 @@
 from __future__ import unicode_literals
 
+from io import BytesIO
+
+from PIL import Image
+from django.core.files.base import ContentFile
 from django.db import models
 from django.forms import ModelForm
+from resizeimage import resizeimage
 
 
 class OfficerRole(models.Model):
@@ -80,6 +85,7 @@ class JobPostingForm(ModelForm):
         fields = '__all__'
         exclude = ['approved']
 
+
 class Event(models.Model):
     title = models.CharField(max_length=300)
     location = models.CharField(max_length=300)
@@ -100,8 +106,37 @@ class FAQ(models.Model):
         return self.question
 
 
-class GalleryImage(models.Model):
-    file = models.ImageField()
-
 class Gallery(models.Model):
     title = models.CharField(max_length=300)
+    description = models.TextField()
+    date_created = models.DateField()
+
+    def __str__(self):
+        return self.title
+
+
+class GalleryImage(models.Model):
+    full_size_image = models.ImageField(null=True)
+    thumbnail_image = models.ImageField(null=True, blank=True)
+    caption = models.CharField(max_length=300, blank=True)
+    gallery = models.ForeignKey(Gallery, on_delete=models.CASCADE, related_name='images')
+
+    def __str__(self):
+        return self.caption
+
+    def save(self, *args, **kwargs):
+        pil_image_obj = Image.open(self.full_size_image)
+        new_image = resizeimage.resize_width(pil_image_obj, 240)
+
+        new_image_io = BytesIO()
+        new_image.save(new_image_io, format='JPEG')
+
+        temp_name = self.full_size_image.name
+
+        self.thumbnail_image.save(
+            temp_name,
+            content=ContentFile(new_image_io.getvalue()),
+            save=False
+        )
+
+        super(GalleryImage, self).save(*args, **kwargs)
