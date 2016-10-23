@@ -108,8 +108,8 @@ class FAQ(models.Model):
 
 class Gallery(models.Model):
     title = models.CharField(max_length=300)
-    description = models.TextField()
-    date_created = models.DateField()
+    description = models.TextField(blank=True)
+    date_created = models.DateField(null=True)
 
     def __str__(self):
         return self.title
@@ -119,7 +119,7 @@ class GalleryImage(models.Model):
     full_size_image = models.ImageField(null=True)
     thumbnail_image = models.ImageField(null=True, blank=True)
     caption = models.CharField(max_length=300, blank=True)
-    gallery = models.ForeignKey(Gallery, on_delete=models.CASCADE, related_name='images')
+    gallery = models.ForeignKey(Gallery, on_delete=models.CASCADE, related_name='images', null=True)
 
     def __str__(self):
         return self.caption
