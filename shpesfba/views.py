@@ -1,11 +1,15 @@
 import datetime
+
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.contrib import messages
 
-from shpesfba.models import Officer, Event, JobPosting, Membership, MessageForm, MessageType, JobPostingForm, Gallery
+from shpesfba.models import Officer, Event, JobPosting, Membership, MessageForm, MessageType, JobPostingForm, Gallery, \
+    GalleryImageForm
 
 
 def index(request):
@@ -27,7 +31,8 @@ def executive_board(request):
 
 def job_listings(request):
     dt = datetime.datetime.now().replace(hour=0, minute=0, second=0)
-    jobs = JobPosting.objects.filter(approved=True, expiration_date__gte=timezone.make_aware(dt)).order_by('-expiration_date')
+    jobs = JobPosting.objects.filter(approved=True, expiration_date__gte=timezone.make_aware(dt)).order_by(
+        '-expiration_date')
     context = {
         'jobs': jobs
     }
@@ -44,7 +49,8 @@ def add_job(request):
         form = JobPostingForm(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Job submitted successfully. Please give us a few days to review it for posting.', extra_tags='alert-success')
+            messages.success(request, 'Job submitted successfully. Please give us a few days to review it for posting.',
+                             extra_tags='alert-success')
             return redirect('jobs.add-job')
     else:
         form = JobPostingForm()
@@ -65,23 +71,25 @@ def contact(request):
         form = MessageForm(request.POST)
         if form.is_valid():
             form.save()
-            msg = "From: {} <{}>\r\nType: {} ({})\r\n\r\n{}".format(form.cleaned_data['name'], form.cleaned_data['email'],
-                                                               form.cleaned_data['message_type'].title,
-                                                               form.cleaned_data['message_type'].responsible_officer_role.email,
-                                                               form.cleaned_data['message'])
+            msg = "From: {} <{}>\r\nType: {} ({})\r\n\r\n{}".format(form.cleaned_data['name'],
+                                                                    form.cleaned_data['email'],
+                                                                    form.cleaned_data['message_type'].title,
+                                                                    form.cleaned_data[
+                                                                        'message_type'].responsible_officer_role.email,
+                                                                    form.cleaned_data['message'])
 
             send_notice('Message from SHPE SF BA Site', msg)
-            messages.success(request, 'Message sent successfully. We\'ll reply as soon as possible.', extra_tags='alert-success')
+            messages.success(request, 'Message sent successfully. We\'ll reply as soon as possible.',
+                             extra_tags='alert-success')
             return redirect('contact')
 
     else:
 
         if request.GET.get('action', None) == 'mailing_list':
             message_type = MessageType.objects.get(title='Join our Mailing List')
-            form = MessageForm(initial = {'message_type':message_type.pk})
+            form = MessageForm(initial={'message_type': message_type.pk})
         else:
             form = MessageForm()
-
 
     return render(request, 'shpesfba/contact.html', {'form': form})
 
@@ -129,3 +137,18 @@ def gallery(request):
         'galleries': galleries
     }
     return render(request, 'shpesfba/gallery.html', context)
+
+
+@login_required
+def upload_gallery_images(request):
+    if request.method == "POST":
+        f = GalleryImageForm(request.POST, request.FILES)
+        if f.is_valid():
+            f.save()
+        return HttpResponse("ok")
+    else:
+        galleries = Gallery.objects.all()
+        context = {
+            'galleries': galleries
+        }
+        return render(request, 'shpesfba/gallery_uploader.html', context)

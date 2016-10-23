@@ -15,6 +15,7 @@ urlpatterns = [
     url(r'^membership/?$', views.membership, name='membership'),
     url(r'^contact/?$', views.contact, name='contact'),
     url(r'^gallery/?$', views.gallery, name='gallery'),
+    url(r'^upload-gallery-images/?$', views.upload_gallery_images, name='upload-gallery-images'),
 
     url(r'^about/?$', RedirectView.as_view(url='/about/executive-board', permanent=False), name='about'),
     url(r'^about/executive-board/?$', views.executive_board, name='about.executive-board'),
