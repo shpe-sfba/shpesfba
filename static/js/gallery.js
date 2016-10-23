@@ -201,3 +201,9 @@ var initPhotoSwipeFromDOM = function (gallerySelector) {
 
 // execute above function
 initPhotoSwipeFromDOM('.image-gallery');
+
+$('.image-gallery').masonry({
+    itemSelector: '.gallery-image',
+    transitionDuration: 0
+});
+

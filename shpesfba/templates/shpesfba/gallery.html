@@ -21,7 +21,7 @@
             </h2>
             <div class="image-gallery row" itemscope itemtype="http://schema.org/ImageGallery">
                 {% for image in gallery.images.all %}
-                    <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" class="col-xs-6 col-md-3">
+                    <figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject" class="col-xs-6 col-md-3 gallery-image">
                         <a
                                 href="{{ image.full_size_image.url }}"
                                 itemprop="contentUrl"
@@ -105,5 +105,6 @@
 {% block scripts %}
     <script src="{% static "js/photoswipe.min.js" %}"></script>
     <script src="{% static "js/photoswipe-ui-default.min.js" %} "></script>
+    <script src="{% static "js/masonry.pkgd.min.js" %} "></script>
     <script src="{% static "js/gallery.js" %} "></script>
 {% endblock %}
