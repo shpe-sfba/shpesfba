@@ -2,7 +2,7 @@ from __future__ import unicode_literals
 
 from io import BytesIO
 
-from PIL import Image
+from PIL import Image, ExifTags
 from django.core.files.base import ContentFile
 from django.db import models
 from django.forms import ModelForm
@@ -126,16 +126,38 @@ class GalleryImage(models.Model):
 
     def save(self, *args, **kwargs):
         pil_image_obj = Image.open(self.full_size_image)
+
+        for orientation in ExifTags.TAGS.keys():
+            if ExifTags.TAGS[orientation] == 'Orientation': break
+
+        exif = dict(pil_image_obj._getexif().items())
+
+        if exif[orientation] == 3:
+            pil_image_obj = pil_image_obj.rotate(180, expand=True)
+        elif exif[orientation] == 6:
+            pil_image_obj = pil_image_obj.rotate(270, expand=True)
+        elif exif[orientation] == 8:
+            pil_image_obj = pil_image_obj.rotate(90, expand=True)
+
         new_image = resizeimage.resize_width(pil_image_obj, 240)
 
         new_image_io = BytesIO()
         new_image.save(new_image_io, format='JPEG')
 
-        temp_name = self.full_size_image.name
+        original_image_io = BytesIO()
+        pil_image_obj.save(original_image_io, format='JPEG')
+
+        file_name = self.full_size_image.name
 
         self.thumbnail_image.save(
-            temp_name,
+            file_name,
             content=ContentFile(new_image_io.getvalue()),
+            save=False
+        )
+
+        self.full_size_image.save(
+            file_name,
+            content=ContentFile(original_image_io.getvalue()),
             save=False
         )
 
