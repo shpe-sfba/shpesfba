@@ -131,15 +131,17 @@ class GalleryImage(models.Model):
             if ExifTags.TAGS[orientation] == 'Orientation': break
 
         if hasattr(pil_image_obj, '_getexif'):
-            exif = dict(pil_image_obj._getexif().items())
+            got_exif = pil_image_obj._getexif()
+            if got_exif is not None:
+                exif = dict(got_exif.items())
 
-            if orientation in exif:
-                if exif[orientation] == 3:
-                    pil_image_obj = pil_image_obj.rotate(180, expand=True)
-                elif exif[orientation] == 6:
-                    pil_image_obj = pil_image_obj.rotate(270, expand=True)
-                elif exif[orientation] == 8:
-                    pil_image_obj = pil_image_obj.rotate(90, expand=True)
+                if orientation in exif:
+                    if exif[orientation] == 3:
+                        pil_image_obj = pil_image_obj.rotate(180, expand=True)
+                    elif exif[orientation] == 6:
+                        pil_image_obj = pil_image_obj.rotate(270, expand=True)
+                    elif exif[orientation] == 8:
+                        pil_image_obj = pil_image_obj.rotate(90, expand=True)
 
         new_image = resizeimage.resize_width(pil_image_obj, 240)
 
