@@ -3,7 +3,7 @@
     Past Events
 {% endblock %}
 {% block about_content %}
-<h1>Past Events</h1>
+<h1>Past Events <small><a href="{% url "calendar" %}" class="btn btn-link"><i class="glyphicon glyphicon-calendar"></i> View Calendar</a></small></h1>
 {% if events %}
   {% for event in events %}
       <h4><a href="https://facebook.com/events/{{ event.fb_id }}" target="_blank">{{ event.title }}

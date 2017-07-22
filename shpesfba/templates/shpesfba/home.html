@@ -44,6 +44,7 @@
                     <p class="text-center"><em>No upcoming events</em></p>
                 {% endif %}
                 <p class="text-center">
+                <a href="{% url 'calendar' %}" class="btn btn-default">View Calendar</a>
                 <a href="{% url 'about.past-events' %}" class="btn btn-default">View Past Events</a>
                 </p>
             </div>

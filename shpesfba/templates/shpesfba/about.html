@@ -2,7 +2,7 @@
 {% load nav_active %}
 {% block content %}
     <div class="container-fluid">
-        <div id="headline-min" class="row">
+       <div id="{% block headline_class %}headline-min{% endblock %}" class="row">
         </div>
     </div>
 
@@ -10,9 +10,17 @@
         <div class="col-md-2">
             <h2>About Us</h2>
             <div class="list-group">
+                <a class="list-group-item {% nav_active "about.shpesfba" "active" %}"
+                   href="{% url "about.shpesfba" %}">
+                    About SHPE SFBA
+                </a>
                 <a class="list-group-item {% nav_active "about.executive-board" "active" %}"
                    href="{% url "about.executive-board" %}">
                     Executive Board
+                </a>
+                <a class="list-group-item {% nav_active "about.awards" "active" %}"
+                   href="{% url "about.awards" %}">
+                    Awards and Honors
                 </a>
                 <a class="list-group-item {% nav_active "about.past-events" "active" %}"
                    href="{% url "about.past-events" %}">
