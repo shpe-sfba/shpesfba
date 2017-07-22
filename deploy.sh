@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rsync -rvh --exclude 'deploy.sh' --exclude '.env' --exclude '.DS_Store' --exclude '.gitignore' --exclude '.git' --exclude 'uploads' --exclude 'venv' --exclude 'staticfiles' --exclude 'db.sqlite3' --exclude '*.pyc' --exclude '.idea' ./ -e ssh 'luis@205.185.120.249:/opt/django/shpesfba/shpesfba/'
+rsync -rvh --exclude 'deploy.sh' --exclude '.env' --exclude '.DS_Store' --exclude '.gitignore' --exclude '.git' --exclude 'uploads' --exclude 'venv' --exclude 'staticfiles' --exclude 'db.sqlite3' --exclude '*.pyc' --exclude '.idea' --exclude 'shpesfbasite/settings.py' ./ -e ssh 'luis@205.185.120.249:/opt/django/shpesfba/shpesfba/'
 
 ssh luis@205.185.120.249 <<'ENDSSH'
 source /opt/django/shpesfba/shpesfba/.env
