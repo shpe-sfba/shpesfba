@@ -17,15 +17,20 @@ urlpatterns = [
     url(r'^gallery/?$', views.gallery, name='gallery'),
     url(r'^upload-gallery-images/?$', views.upload_gallery_images, name='upload-gallery-images'),
 
-    url(r'^about/?$', RedirectView.as_view(url='/about/executive-board', permanent=False), name='about'),
+    url(r'^about/?$', RedirectView.as_view(url='/about/shpesfba/', permanent=False), name='about'),
+    url(r'^about/shpesfba/?$', TemplateView.as_view(template_name='shpesfba/about.shpesfba.html'), name='about.shpesfba'),
     url(r'^about/executive-board/?$', views.executive_board, name='about.executive-board'),
+    url(r'^about/awards/?$', TemplateView.as_view(template_name='shpesfba/about.awards.html'), name='about.awards'),
     url(r'^about/chapter-history/?$', TemplateView.as_view(template_name='shpesfba/about.chapter.html'),
         name='about.chapter'),
     url(r'^about/SHPE/?$', TemplateView.as_view(template_name='shpesfba/about.shpe.html'), name='about.shpe'),
     url(r'^about/bylaws/?$', TemplateView.as_view(template_name='shpesfba/about.bylaws.html'), name='about.bylaws'),
+    url(r'^calendar/?$', TemplateView.as_view(template_name='shpesfba/calendar.html'), name='calendar'),
     url(r'^about/past-events/?$', views.past_events, name='about.past-events'),
 
-    url(r'latino-engineering-day/?$', TemplateView.as_view(template_name='shpesfba/latino-engineering-day.html'), name='latino-engineering-day')
+    url(r'latino-engineering-day/?$', TemplateView.as_view(template_name='shpesfba/latino-engineering-day.html'), name='latino-engineering-day'),
+
+    url(r'^mentorshpe/?$', TemplateView.as_view(template_name='shpesfba/mentorshpe.html'), name='mentorshpe'),
 ]
 
 ## debug stuff to serve static media
