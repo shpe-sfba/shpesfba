@@ -684,3 +684,15 @@ a.navigation {
 #credit {
     padding-top:40px;
 }
+
+.clearfix {
+      clear:both;
+}
+
+#about-header {
+    background-image: url('images/everybody.jpeg');
+    height: 300px;
+  background-repeat: no-repeat;
+      background-position: top center;
+          background-size: cover;
+}
