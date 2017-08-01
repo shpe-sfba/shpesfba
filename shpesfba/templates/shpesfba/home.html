@@ -3,32 +3,80 @@
     Home
 {% endblock %}
 {% block content %}
-    <div class="container-fluid">
-        <div id="headline" class="row">
-            <h1 class="text-center">San Francisco Bay Area<br/>Society of Hispanic Professional Engineers</h1>
+
+    <div class="banner">
+      <div class="bg-color">
+        <div class="container">
+          <div class="row">
+              <h1 class="banner-text">San Francisco Bay Area<br/>Society of Hispanic Professional Engineers</h1>
+          </div>
         </div>
+      </div>
     </div>
 
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="text-center">What is SHPE?</h1>
-                <p>The society of Hispanic Professional Engineers (SHPE) was founded in Los Angeles, California, in 1974
-                    by
-                    a
-                    group of engineers employed by the city of Los Angeles. Their objective was to form a national
-                    organization
-                    of professional engineers to serve as role models in the Hispanic Community.</p>
-                <p>The concept of Networking was the key basis for the organization. SHPE quickly established two
-                    student
-                    chapters to begin the network that would grow to encompass the nation as well as reach countries
-                    outside
-                    of
-                    the United States. Today, SHPE enjoys a strong but independent network of professionals and student
-                    chapters
-                    throughout the nation.</p>
+                <h1 class="text-center">Mission</h1>
+                <p class="text-center">
+                    Providing professional, educational and cultural support in the community
+                    and promoting educational development programs that advance our members'
+                    lives and careers.
+                </p>
+                <hr class="bottom-line">
             </div>
         </div>
+
+        <section class="section-padding">
+            <div class="container">
+                <div class="row">
+                <div class="feature-info">
+                    <div class="fea">
+                    <div class="col-md-4">
+                        <div class="heading pull-right">
+                            <h4>Outreach & Community Service</h4>
+                            <p>
+                            We are always looking for new ways to engage with students, parents, 
+                            educators, and other members of our community
+                            </p>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="fea">
+                    <div class="col-md-4">
+                        <div class="heading pull-right">
+                            <h4>Development and Networking</h4>
+                            <p>
+                            We host regular events that develop our members’ skills so that they can succeed in 
+                            the workplace
+                            </p>
+                        </div>
+                    </div>
+                    </div>
+                    <div class="fea">
+                    <div class="col-md-4">
+                        <div class="heading pull-right">
+                            <h4>Chapter Development</h4>
+                            <p>
+                            We engage in networking events with other organizations in the bay area, mixers 
+                            at a variety of companies, and competitive sports
+                            </p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="text-center">
+                <div class="col-xs-4 line"><hr></div>
+                <div class="col-xs-4 blue-chip">2016-2017 Blue Chip Award Winner</div>
+                <div class="col-xs-4 line"><hr></div>
+            </div>
+        </section>
+
         <div class="row">
             <div class="col-md-6">
                 <h1 class="text-center">Upcoming Events</h1>
@@ -44,8 +92,8 @@
                     <p class="text-center"><em>No upcoming events</em></p>
                 {% endif %}
                 <p class="text-center">
-                <a href="{% url 'calendar' %}" class="btn btn-default">View Calendar</a>
-                <a href="{% url 'about.past-events' %}" class="btn btn-default">View Past Events</a>
+                <a href="{% url 'calendar' %}" class="btn btn-default btn-shpe">View Calendar</a>
+                <a href="{% url 'about.past-events' %}" class="btn btn-default btn-shpe">View Past Events</a>
                 </p>
             </div>
             <div class="col-md-6">
@@ -58,9 +106,9 @@
                     of
                     SF Bay Area SHPE.</p>
                 <p class="text-center">
-                    <a class="btn btn-default" href="https://www.facebook.com/groups/120819351271743/" target="_blank">Join Our Facebook Group</a>
-                    <a class="btn btn-default" href="{% url "membership" %}">Apply Online</a>
-                    <a class="btn btn-default" href="{% url "contact" %}?action=mailing_list">Join Our Mailing List</a>
+                    <a class="btn btn-default btn-shpe" href="https://www.facebook.com/groups/120819351271743/" target="_blank">Join Our Facebook Group</a>
+                    <a class="btn btn-default btn-shpe" href="{% url "membership" %}">Apply Online</a>
+                    <a class="btn btn-default btn-shpe" href="{% url "contact" %}?action=mailing_list">Join Our Mailing List</a>
                 </p>
             </div>
         </div>
