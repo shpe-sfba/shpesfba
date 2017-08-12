@@ -19,66 +19,54 @@
             <div class="col-md-12">
                 <h1 class="text-center">Mission</h1>
                 <p class="text-center">
-                    Providing professional, educational and cultural support in the community
-                    and promoting educational development programs that advance our members'
+                    Providing professional, educational and cultural support that advance our members'
                     lives and careers.
                 </p>
-                <hr class="bottom-line">
+                <hr class="section-line">
             </div>
         </div>
 
         <section class="section-padding">
             <div class="container">
                 <div class="row">
-                <div class="feature-info">
-                    <div class="fea">
-                    <div class="col-md-4">
-                        <div class="heading pull-right">
-                            <h4>Outreach & Community Service</h4>
-                            <p>
-                            We are always looking for new ways to engage with students, parents, 
-                            educators, and other members of our community
-                            </p>
-                        </div>
+                    <div class="col-sm-12 col-md-4 feature text-center">
+                        <h4>Outreach & Community Service</h4>
+                            <img class="img-rounded" src="/static/img/home/outreach.jpg"/>
+                        <p>
+                        We are always looking for new ways to engage with students, parents, 
+                        educators, and other members of our community
+                        </p>
                     </div>
+                    <div class="col-sm-12 col-md-4 feature text-center">
+                        <h4>Professional Development</h4>
+                        <img class="img-rounded" src="/static/img/home/prof-dev.jpg"/>
+                        <p>
+                        We host regular events that develop our members’ skills so that they can succeed in 
+                        the workplace
+                        </p>
                     </div>
-                    <div class="fea">
-                    <div class="col-md-4">
-                        <div class="heading pull-right">
-                            <h4>Development and Networking</h4>
-                            <p>
-                            We host regular events that develop our members’ skills so that they can succeed in 
-                            the workplace
-                            </p>
-                        </div>
+                    <div class="col-sm-12 col-md-4 feature text-center">
+                        <h4>Chapter Development</h4>
+                            <img class="img-rounded" src="/static/img/home/chapter-dev.JPG"/>
+                        <p>
+                        We engage in networking events with other organizations in the bay area, mixers 
+                        at a variety of companies, and competitive sports
+                        </p>
                     </div>
-                    </div>
-                    <div class="fea">
-                    <div class="col-md-4">
-                        <div class="heading pull-right">
-                            <h4>Chapter Development</h4>
-                            <p>
-                            We engage in networking events with other organizations in the bay area, mixers 
-                            at a variety of companies, and competitive sports
-                            </p>
-                        </div>
-                    </div>
-                    </div>
-                </div>
                 </div>
             </div>
         </section>
 
         <section>
             <div class="text-center">
-                <div class="col-xs-4 line"><hr></div>
-                <div class="col-xs-4 blue-chip">2016-2017 Blue Chip Award Winner</div>
-                <div class="col-xs-4 line"><hr></div>
+                <div class="hidden-xs col-sm-4 line"><hr></div>
+                <div class="col-xs-12 col-sm-4 blue-chip"><i class="fa fa-trophy" style="padding-right: 10px;" aria-hidden="true"></i>2016-2017 Blue Chip Award Winner</div>
+                <div class="hidden-xs col-sm-4 line"><hr></div>
             </div>
         </section>
 
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 text-center">
                 <h1 class="text-center">Upcoming Events</h1>
                 {% if events %}
                     {% for event in events %}
@@ -96,20 +84,21 @@
                 <a href="{% url 'about.past-events' %}" class="btn btn-default btn-shpe">View Past Events</a>
                 </p>
             </div>
-            <div class="col-md-6">
-                <h1 class="text-center">Membership</h1>
-                <p>Membership is open to all individuals who believe in the mission and goals set forth by the
-                    organization.
-                    SF Bay Area SHPE does not discriminate based on occupation, ethnicity, or any other classification.
-                    The
-                    chapter welcomes individuals and corporations alike to join together to fufill the mission and goals
-                    of
-                    SF Bay Area SHPE.</p>
-                <p class="text-center">
-                    <a class="btn btn-default btn-shpe" href="https://www.facebook.com/groups/120819351271743/" target="_blank">Join Our Facebook Group</a>
-                    <a class="btn btn-default btn-shpe" href="{% url "membership" %}">Apply Online</a>
-                    <a class="btn btn-default btn-shpe" href="{% url "contact" %}?action=mailing_list">Join Our Mailing List</a>
-                </p>
+            <div class="col-md-6 text-center">
+                <h1 class="text-center">Get in Touch</h1>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <a class="btn btn-default btn-shpe" href="https://www.facebook.com/groups/120819351271743/" target="_blank" data-toggle="tooltip" title="Facebook"><i class="fa fa-lg fa-facebook-official" aria-hidden="true"></i></a>
+                        <a class="btn btn-default btn-shpe" href="https://www.instagram.com/shpesfba/" target="_blank" data-toggle="tooltip" title="Instagram"><i class="fa fa-lg fa-instagram" aria-hidden="true"></i></a>
+                        <a class="btn btn-default btn-shpe" href="https://join.slack.com/t/shpe-sfba/shared_invite/MjI0OTQ2MDAxOTc0LTE1MDIyNDUxNTctMGRkZDRiYmJlNg" target="_blank" data-toggle="tooltip" title="Slack"><i class="fa fa-lg fa-slack" aria-hidden="true"></i></a>
+                        <a class="btn btn-default btn-shpe" href="{% url "contact" %}" target="_blank" data-toggle="tooltip" title="Join Mailing List"><i class="fa fa-lg fa-envelope-o" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <a class="btn btn-default btn-shpe" href="{% url "membership" %}">Become a Member</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
