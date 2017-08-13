@@ -1,9 +1,12 @@
 html {
     overflow-y: scroll;
+    min-height: 100%;
+    position: relative;
 }
 
 body {
      font-family: 'Open Sans', sans-serif; 
+    margin-bottom: 140px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -487,9 +490,12 @@ footer {
     padding-top:20px;
     padding-bottom: 20px;
     background-color: #909090;
-    /* min-height: 350px; */
     font-size: 12px;
-    color: #d3d2d2
+    color: #d3d2d2;
+    height: 100px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 footer p {
