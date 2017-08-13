@@ -5,7 +5,7 @@ html {
 }
 
 body {
-     font-family: 'Open Sans', sans-serif; 
+    font-family: 'Open Sans', sans-serif; 
     margin-bottom: 140px;
 }
 
@@ -17,7 +17,6 @@ h1, h2, h3, h4, h5, h6 {
 #headline {
     background-color: rgba(12, 11, 11, 0.82);
     background-image: url('images/home_group.jpg');
-    /* background-position: 25% 0, 85% 85%; */
      background-size: auto 120%; 
     background-repeat: no-repeat;
     height: 420px;
