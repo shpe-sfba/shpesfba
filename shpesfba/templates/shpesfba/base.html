@@ -46,20 +46,22 @@
 {% endblock %}
 
 <footer role="footer" class="site-footer container-fluid">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <h4>Connect with us</h4>
-                <p class="social-link"><a href="https://www.facebook.com/groups/120819351271743/" target="_blank"> <img src="{% static "img/facebook-icon-small.png" %}">Facebook</a>
+    <div class="row text-center">
+        <div class="col-xs-12">
+            <a class="social-link" href="https://www.facebook.com/groups/120819351271743/" target="_blank"><i class="fa fa-3x fa-facebook-official" aria-hidden="true"></i></a>
+            <a class="social-link" href="https://www.instagram.com/shpesfba/" target="_blank"><i class="fa fa-3x fa-instagram" aria-hidden="true"></i></a>
+            <a class="social-link" href="https://join.slack.com/t/shpe-sfba/shared_invite/MjI0OTQ2MDAxOTc0LTE1MDIyNDUxNTctMGRkZDRiYmJlNg" target="_blank"><i class="fa fa-3x fa-slack" aria-hidden="true"></i></a>
+            <a class="social-link" href="{% url "contact" %}" target="_blank" data-toggle="tooltip" title="Join Mailing List"><i class="fa fa-3x fa-envelope-o" aria-hidden="true"></i></a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6">
+            <p>Copyright &copy; SHPE SFBA <script>document.write(new Date().getFullYear());</script></p>
+        </div>
+        <div class="col-xs-6 text-right">
+                <p><a href="http://www.shpe.org/" target="_blank">SHPE Inc.</a>&nbsp;|&nbsp;
+                   <a href="https://www.shpeconnect.org" target="_blank">SHPE Connect</a>
                 </p>
-                <p class="social-link"><a href="https://www.instagram.com/shpesfba/" target="_blank"> <img src="{% static "img/instagram-icon-small.png" %}">Instagram</a>
-                </p>
-            </div>
-            <div class="col-md-6">
-                <h4>SHPE Resources</h4>
-                <p><a href="http://www.shpe.org/" target="_blank">SHPE Inc.</a></p>
-                <p><a href="https://www.shpeconnect.org" target="_blank">SHPE Connect</a></p>
-            </div>
         </div>
     </div>
 </footer>

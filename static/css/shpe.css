@@ -479,11 +479,15 @@ h2 {
     border: 1px solid #1a3851
 }
 
+/* Footer
+ ===========================================
+*/ 
 footer {
     margin-top: 40px;
     padding-top:20px;
-    background-color: #636363;
-    min-height: 350px;
+    padding-bottom: 20px;
+    background-color: #909090;
+    /* min-height: 350px; */
     font-size: 12px;
     color: #d3d2d2
 }
@@ -491,7 +495,6 @@ footer {
 footer p {
     font-size: 12px
 }
-
 
 footer hr {
     margin: 5px 0;
@@ -504,25 +507,6 @@ footer a {
 
 footer a:hover {
     color: #fff
-}
-
-footer .footer-btn {
-    width: 105px;
-    height: 25px;
-    color: #fff;
-    background-color: #464646;
-    float: right;
-    font-style: italic;
-    line-height: 13px;
-    text-align: left
-}
-
-footer .footer-btn_style {
-    color: #fff;
-    background-color: #464646;
-    font-style: italic;
-    line-height: 13px;
-    text-align: left
 }
 
 footer input.form-control {
@@ -566,6 +550,9 @@ footer .buffer {
     font-size: 1.5rem
 }
 
+/* Navigation
+ ===========================================
+*/ 
 .navbar-brand {
     padding: 25px 0
 }
