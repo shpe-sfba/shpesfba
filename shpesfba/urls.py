@@ -31,6 +31,8 @@ urlpatterns = [
     url(r'latino-engineering-day/?$', TemplateView.as_view(template_name='shpesfba/latino-engineering-day.html'), name='latino-engineering-day'),
 
     url(r'^mentorshpe/?$', TemplateView.as_view(template_name='shpesfba/mentorshpe.html'), name='mentorshpe'),
+
+    url(r'^contact.mailing-list/?$', TemplateView.as_view(template_name='shpesfba/contact.mailing-list.html'), name='contact.mailing-list'),
 ]
 
 ## debug stuff to serve static media

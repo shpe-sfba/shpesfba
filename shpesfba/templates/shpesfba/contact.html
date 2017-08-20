@@ -22,8 +22,8 @@
             <h1>Contact Us</h1>
             {% if success %}
             {% endif %}
-            <p>Have any questions or comments? Take a look at FAQs at the bottom of the page or use the form below to
-                let us know.</p>
+            <p>Have any questions or comments? Use the form below to let us know.</p>
+            <p>To join the mailing list and receive monthly newsletters <a href="{% url "contact.mailing-list" %}">sign up here.</a></p>
             <p>&nbsp;</p>
             <div class="row">
                 <form method="post" action="{% url 'contact' %}" class="col-md-6">
@@ -90,7 +90,7 @@
                             <textarea id="message" name="message" class="form-control" rows="8">{{ form.message.value|default_if_none:"" }}</textarea>
                         </div>
                         <div class="form-group">
-                            <input type="submit" class="btn btn-primary"/>
+                            <input type="submit" class="btn btn-shpe"/>
                         </div>
                     </fieldset>
                 </form>

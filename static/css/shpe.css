@@ -1,13 +1,25 @@
 html {
-  overflow-y: scroll;
+    overflow-y: scroll;
+    min-height: 100%;
+    position: relative;
 }
+
+body {
+    font-family: 'Open Sans', sans-serif; 
+    margin-bottom: 140px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+     font-weight: 700; 
+     color: #4B4B4C; 
+}
+
 #headline {
-    background-color: #33648c;
-    background-image: url('images/shape-01.png'), url('images/shape-02.png');
-    background-position: 25% 0, 85% 85%;
-    background-size: auto 120%;
+    background-color: rgba(12, 11, 11, 0.82);
+    background-image: url('images/home_group.jpg');
+     background-size: auto 120%; 
     background-repeat: no-repeat;
-    height: 220px;
+    height: 420px;
 }
 
 #headline-min {
@@ -32,7 +44,7 @@ html {
 }
 
 #shpenavbar ul.navbar-nav li > a{
-    line-height: 60px;
+    line-height: 50px;
 }
 
 #shpelogo{
@@ -43,10 +55,11 @@ html {
 
 }
 #shpelogo > img{
-    width: 100%;
+    width: 90%;
 }
 .social-link {
     line-height:30px;
+    padding: 5px;
 }
 .social-link img {
     margin-right: 10px;
@@ -468,19 +481,25 @@ h2 {
     border: 1px solid #1a3851
 }
 
+/* Footer
+ ===========================================
+*/ 
 footer {
     margin-top: 40px;
     padding-top:20px;
-    background-color: #636363;
-    min-height: 350px;
+    padding-bottom: 20px;
+    background-color: #909090;
     font-size: 12px;
-    color: #d3d2d2
+    color: #d3d2d2;
+    height: 100px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 footer p {
     font-size: 12px
 }
-
 
 footer hr {
     margin: 5px 0;
@@ -493,25 +512,6 @@ footer a {
 
 footer a:hover {
     color: #fff
-}
-
-footer .footer-btn {
-    width: 105px;
-    height: 25px;
-    color: #fff;
-    background-color: #464646;
-    float: right;
-    font-style: italic;
-    line-height: 13px;
-    text-align: left
-}
-
-footer .footer-btn_style {
-    color: #fff;
-    background-color: #464646;
-    font-style: italic;
-    line-height: 13px;
-    text-align: left
 }
 
 footer input.form-control {
@@ -555,6 +555,9 @@ footer .buffer {
     font-size: 1.5rem
 }
 
+/* Navigation
+ ===========================================
+*/ 
 .navbar-brand {
     padding: 25px 0
 }
@@ -681,10 +684,6 @@ a.navigation {
     z-index: 100
 }
 
-#credit {
-    padding-top:40px;
-}
-
 .clearfix {
       clear:both;
 }
@@ -695,4 +694,124 @@ a.navigation {
   background-repeat: no-repeat;
       background-position: top center;
           background-size: cover;
+}
+
+.section-line {
+	width: 25px;
+	height: 3px;
+	background-color: #4B4B4C;
+}
+
+/* Homepage Features
+ ===========================================
+*/ 
+.feature {
+	margin-top: 25px;
+}
+
+.feature p {
+    padding-top: 15px;
+}
+
+@media only screen and (max-width: 328px) {
+    .feature img {
+        width: 80%;
+         
+    }
+ }
+
+@media only screen and (min-width: 328px) {
+    .feature img {
+        width: 280px;
+    }
+ }
+
+ .mission-text {
+    font-size: 18px;
+    padding-top: 25px;
+ }
+
+/* Custom Buttons
+ ===========================================
+*/ 
+.btn-shpe {
+    border-radius: 0;
+    background: none;
+    border: 2px solid #1a3851;
+    color: #337ab7; 
+    margin-top: 2px;
+}
+
+.btn-shpe:hover {
+    border-radius: 0;
+    background: #337ab7;
+    border: 2px solid #337ab7;
+    color: #fff;
+}
+
+/* Homepage Blue Chip Award Text
+ ===========================================
+*/ 
+.blue-chip {
+  color: #4B4B4C;
+  font-weight: 600;
+  font-size: 12pt;
+  padding: 25px;
+  text-align: center;
+}
+
+.line {
+  padding-top: 20px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.line hr {
+    border-top: 2px solid #4B4B4C;
+}
+
+/* Homepage Group Image and Leading Text
+ ===========================================
+*/ 
+.banner {
+	background: url('images/home_group2.jpg') no-repeat center top;
+    background-size: cover;
+	min-height: 480px;
+    position: relative;
+}
+
+.btn-banner {
+    border-radius: 0;
+    background: none;
+    border: 2px solid #fff;
+    color: #fff; 
+    margin-top: 2px;
+}
+
+.btn-banner:hover {
+    border-radius: 0;
+    background: #337ab7;
+    border: 2px solid #337ab7;
+    color: #fff;
+}
+
+@media only screen and (max-width: 667px) {
+    .banner-text {
+        text-align: center;
+        color: #fff;
+        margin-top: 50%;
+    }
+ }
+
+@media only screen and (min-width: 667px) {
+    .banner-text {
+        text-align: center;
+        color: #fff;
+        margin-top: 26%;
+    }
+ }
+
+.bg-color {
+	background-color: rgba(12, 11, 11, 0.5);
+	min-height: 480px;
 }
