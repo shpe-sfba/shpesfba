@@ -709,6 +709,10 @@ a.navigation {
 	margin-top: 25px;
 }
 
+.feature p {
+    padding-top: 15px;
+}
+
 @media only screen and (max-width: 328px) {
     .feature img {
         width: 80%;
@@ -720,6 +724,11 @@ a.navigation {
     .feature img {
         width: 280px;
     }
+ }
+
+ .mission-text {
+    font-size: 18px;
+    padding-top: 25px;
  }
 
 /* Custom Buttons
@@ -771,11 +780,26 @@ a.navigation {
     position: relative;
 }
 
+.btn-banner {
+    border-radius: 0;
+    background: none;
+    border: 2px solid #fff;
+    color: #fff; 
+    margin-top: 2px;
+}
+
+.btn-banner:hover {
+    border-radius: 0;
+    background: #337ab7;
+    border: 2px solid #337ab7;
+    color: #fff;
+}
+
 @media only screen and (max-width: 667px) {
     .banner-text {
         text-align: center;
         color: #fff;
-        margin-top: 60%;
+        margin-top: 50%;
     }
  }
 
@@ -783,7 +807,7 @@ a.navigation {
     .banner-text {
         text-align: center;
         color: #fff;
-        margin-top: 30%;
+        margin-top: 26%;
     }
  }
 
