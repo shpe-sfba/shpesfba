@@ -312,6 +312,10 @@ h2 {
     }
 }
 
+
+/* Membership
+ ===========================================
+*/ 
 .membership_section {
     min-height: 200px
 }
@@ -326,9 +330,12 @@ h2 {
     }
 }
 
+.membership-lead {
+    line-height: 3rem;
+}
+
 .membershipLevel {
     background-color: #d3d2d2;
-    border-radius: 10px;
     margin-bottom: 25px;
     padding-left: 0;
     padding-right: 0
