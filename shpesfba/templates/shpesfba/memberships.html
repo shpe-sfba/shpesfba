@@ -9,27 +9,34 @@
     </div>
 
     <div class="container">
-        <div class="col-md-12">
-            <h1>Membership Classification</h1>
-
-            <p>Below is a listing of all available membership types. <a href="https://www.shpeconnect.org" target="_blank">Click here to apply</a></p>
-            <p>
-                Membership is open to all individuals who believe in the mission and goals set forth by the organization. SF Bay Area SHPE does 
-                not discriminate based on occupation, ethnicity, or any other classification. The chapter welcomes individuals and corporations 
-                alike to join together to fufill the mission and goals of SF Bay Area SHPE.
-            </p>
-            {% for membership in memberships %}
-                <div class="row">
-                    <div class="membershipLevel col-sm-12">
-                        <div class="head">
-                            {{ membership.title }} <span> {{ membership.price }}</span>
-                        </div>
-                        <div>
-                            <p>{{ membership.description | linebreaksbr}}</p>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <h1>Join SHPE</h1>
+                <h4 class="membership-lead"> SHPE is an organization of students and professionals interested in developing professional and leadership 
+                    skills, networking, and advancing career goals. Become part of the SHPE Familia and find support wherever you go with over 
+                    250 chapters and 10,000 members across the nation.
+                </h4>
+                <hr class="section-line">
+                <p>To apply visit <a href="https://www.shpeconnect.org" target="_blank">SHPE Connect</a> and create an account.</p>
+                <br>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="text-center">Membership Types</h4>
+                {% for membership in memberships %}
+                    <div class="row">
+                        <div class="membershipLevel col-sm-12">
+                            <div class="head">
+                                {{ membership.title }} <span> {{ membership.price }}</span>
+                            </div>
+                            <div>
+                                <p>{{ membership.description | linebreaksbr}}</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-            {% endfor %}
+                {% endfor %}
+            </div>
         </div>
     </div>
 {% endblock %}
