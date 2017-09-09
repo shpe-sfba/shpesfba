@@ -68,7 +68,10 @@
         <div class="row">
             <div class="col-md-6 text-center">
                 <h1 class="text-center">Upcoming Events</h1>
-                {% if events %}
+                <a href="https://www.eventbrite.com/o/shpe-san-francisco-bay-area-14833371820" target="_blank">
+                    Check our Eventbrite profile to view and register for events
+                </a>
+                <!-- {% if events %}
                     {% for event in events %}
                         <h4><a href="https://facebook.com/events/{{ event.fb_id }}" target="_blank">{{ event.title }}
                             <small>{{ event.date | date:'N j, g:i A' }} at {{ event.location }}</small>
@@ -78,7 +81,7 @@
                     {% endfor %}
                 {% else %}
                     <p class="text-center"><em>No upcoming events</em></p>
-                {% endif %}
+                {% endif %} -->
                 <p class="text-center">
                 <a href="{% url 'calendar' %}" class="btn btn-default btn-shpe">View Calendar</a>
                 <a href="{% url 'about.past-events' %}" class="btn btn-default btn-shpe">View Past Events</a>
