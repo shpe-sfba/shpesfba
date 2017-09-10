@@ -17,25 +17,75 @@
                     250 chapters and 10,000 members across the nation.
                 </h4>
                 <hr class="section-line">
-                <p>To apply visit <a href="https://www.shpeconnect.org" target="_blank">SHPE Connect</a> and create an account.</p>
+                <p>To apply visit <a href="https://www.shpeconnect.org" target="_blank">SHPE Connect</a> and create an account. Select Region 1 and the appropriate membership type.</p>
                 <br>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-8 col-md-offset-2">
                 <h4 class="text-center">Membership Types</h4>
-                {% for membership in memberships %}
-                    <div class="row">
-                        <div class="membershipLevel col-sm-12">
-                            <div class="head">
-                                {{ membership.title }} <span> {{ membership.price }}</span>
-                            </div>
-                            <div>
-                                <p>{{ membership.description | linebreaksbr}}</p>
+                <div class="panel-group panel-wrap" id="accordion" role="tablist" aria-multiselectable="true">
+                    {% for membership in memberships %}
+                    <div class="panel">
+                        <div class="panel-heading" role="tab" id="heading{{ forloop.counter }}">
+                            <h4 class="panel-title">
+                                <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{ forloop.counter }}" aria-expanded="true" aria-controls="collapse{{ forloop.counter }}">
+                                    {{ membership.title }} - {{ membership.price }}
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapse{{ forloop.counter }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{ forloop.counter }}">
+                            <div class="panel-body">
+                                {{ membership.description }}
                             </div>
                         </div>
                     </div>
-                {% endfor %}
+                    {% endfor %} 
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h4 class="text-center">Membership Benefits</h4>
+                <div class="row">
+                    <div class="col-sm-12 col-md-3">
+                        <p class="text-center"><i class="fa fa-5x fa-money" aria-hidden="true"></i></p>
+                        <h4 class="text-center">Scholarships and Fellowships</h4>
+                        <ul>
+                            <li>More than $500,000 in scholarship offerings</li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-12 col-md-3">
+                        <p class="text-center"><i class="fa fa-5x fa-handshake-o" aria-hidden="true"></i></p>
+                        <h4 class="text-center">Employment Opportunities</h4>
+                        <ul>
+                            <li>Internship, fellowships & co-op opportunities</li>
+                            <li>Exclusive access to the SHPE Career Center where you can share your résumé with top employers and search for job openings</li>
+                            <li>Tips on résumé writing and interview skills</li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-12 col-md-3">
+                        <p class="text-center"><i class="fa fa-5x fa-address-book-o" aria-hidden="true"></i></p>
+                        <h4 class="text-center">Networking Opportunities</h4>
+                        <ul>
+                            <li>Meet other members at various social and professional mixers</li>
+                            <li>Interact with company representatives at corporate events</li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-12 col-md-3">
+                        <p class="text-center"><i class="fa fa-5x fa-user-o" aria-hidden="true"></i></p>
+                        <h4 class="text-center">Leadership Development</h4>
+                        <p>Professional, career, & leadership training offered at our various events:</p>
+                        <ul>
+                            <li>Annual SHPE National Conference</li>
+                            <li>National Institute for Leadership Advancement (NILA)</li>
+                            <li>Regional Leadership Development Conferences (RLDC)</li>
+                            <li>Management Growth Training (MGT)</li>
+                            <li>Executive Leadership Institute (ELI)</li>
+                            <li>Discounted registration to SHPE National, Regional & Local events</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
