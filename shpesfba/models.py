@@ -92,6 +92,7 @@ class Event(models.Model):
     description = models.TextField()
     date = models.DateTimeField()
     fb_id = models.CharField(max_length=300, default='')
+    eventbrite_url = models.CharField(max_length=300, default='', blank=True)
 
     def __str__(self):
         return '{} at {}'.format(self.title, self.location)

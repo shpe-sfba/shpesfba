@@ -15,6 +15,31 @@
       </div>
     </div>
 
+    <style>
+        .exp {
+            color: #fff;
+            font-weight: bold;
+            padding-top: 5px;
+        }
+
+        .link {
+            color: #1C566D;
+        }
+    </style>
+    <div class="container-fluid">
+        <div class="row text-center" style="background-color: #009688;">
+            <p class="exp">
+                Join us for Latino Engineering Day at the Exploratorium! &#8226; &#161;Unase a nosotros para el D&#237;a de la Ingenier&#237;a
+                en el Exploratorium!
+                <br> September 24th, 2017
+            </p>
+            <p class="exp">Show this <a href="/static/docs/LED2017_Flyer_v6.pdf.pdf" target="_blank" class="link">flyer</a> for FREE admission
+                &#8226; Presente este <a href="/static/docs/LED2017_Flyer_v6.pdf.pdf" target="_blank" class="link" />volante</a>
+                para entrada GRATIS</p>
+        </div>
+    </div>
+        
+
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -68,25 +93,26 @@
         <div class="row">
             <div class="col-sm-12 col-md-6">
                 <h1 class="text-center">Upcoming Events</h1>
-                <p class="text-center">
-                    <a href="https://www.eventbrite.com/o/shpe-san-francisco-bay-area-14833371820" target="_blank">
-                    Visit our Eventbrite profile to view and register for events
-                    </a>
-                </p>
                 {% if events %}
                     {% for event in events %}
                         <h4><a href="https://facebook.com/events/{{ event.fb_id }}" target="_blank">{{ event.title }}
                             <small>{{ event.date | date:'N j, g:i A' }} at {{ event.location }}</small>
                         </a></h4>
                         <p>{{ event.description | safe | linebreaksbr}}</p>
+                        {% if event.eventbrite_url %}
+                            <p><a href="{{ event.eventbrite_url }}" target="_blank">Register for this event on Eventbrite</p></a>
+                        {% endif %}
                         <hr/>
                     {% endfor %}
                 {% else %}
                     <p class="text-center"><em>No upcoming events</em></p>
                 {% endif %}
                 <p class="text-center">
-                <a href="{% url 'calendar' %}" class="btn btn-default btn-shpe">View Calendar</a>
-                <a href="{% url 'about.past-events' %}" class="btn btn-default btn-shpe">View Past Events</a>
+                    <a href="https://www.eventbrite.com/o/shpe-san-francisco-bay-area-14833371820" target="_blank">
+                                Visit our Eventbrite profile to view and register for events
+                    </a><br>
+                    <a href="{% url 'calendar' %}" class="btn btn-default btn-shpe">View Calendar</a>
+                    <a href="{% url 'about.past-events' %}" class="btn btn-default btn-shpe">View Past Events</a>
                 </p>
             </div>
             <div class="col-sm-12 col-md-6 text-center">

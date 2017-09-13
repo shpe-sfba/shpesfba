@@ -10,6 +10,9 @@
           <small>{{ event.date | date:'N j, g:i A Y' }} at {{ event.location }}</small>
       </a></h4>
       <p>{{ event.description | safe | linebreaksbr }}</p>
+      {% if event.eventbrite_url %}
+        <p><a href="{{ event.eventbrite_url }}" target="_blank">View this event on Eventbrite</p></a>
+      {% endif %}
       <hr/>
   {% endfor %}
 <nav aria-label="Events pages">
