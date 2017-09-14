@@ -16,31 +16,44 @@
     {% endblock %}
 </head>
 <body>
-<nav role="navigation" class="navbar navbar-default" id="shpenavbar">
     <div class="container-fluid">
-        <div class="navbar-header">
-            <button type="button" data-toggle="collapse" data-target="#navbar-collapsable"
-                    class="navbar-toggle collapsed" aria-expanded="false"><span class="sr-only">Toggle navigation</span><span
-                    class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-
-            <a href="/" class="navbar-brand" id="shpelogo">
-                <img src="/static/img/nav_logo.png">
-            </a>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="pull-right">
+                    <ul class="nav nav-pills">
+                        <li><a href="https://www.facebook.com/groups/120819351271743/" target="_blank"><i class="fa fa-facebook-official" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.instagram.com/shpesfba/" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                        <li><a href="https://join.slack.com/t/shpe-sfba/shared_invite/MjI0OTQ2MDAxOTc0LTE1MDIyNDUxNTctMGRkZDRiYmJlNg" target="_blank"><i class="fa fa-slack" aria-hidden="true"></i></a></li>
+                        <li><a href="https://www.youtube.com/channel/UC0QS07EGUIa1ZIsyjAJtBfg" target="_blank"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                        <li><a href="{% url "contact" %}" target="_blank"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>                          
+                    </ul>
+                </div>
+            </div>
         </div>
+        <nav role="navigation" class="navbar navbar-default" id="shpenavbar">
+            <div class="navbar-header">
+                <button type="button" data-toggle="collapse" data-target="#navbar-collapsable"
+                        class="navbar-toggle collapsed" aria-expanded="false"><span class="sr-only">Toggle navigation</span><span
+                        class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
 
-        <div id="navbar-collapsable" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
-            <ul class="navbar-nav nav">
-                <li class="{% nav_active 'index' 'active' %}"><a href="/">Home</a></li>
-                <li class="{% nav_active 'membership' 'active' %}"><a href="{% url "membership" %}">Membership</a></li>
-                <li class="{% nav_active 'calendar' 'active' %}"><a href="{% url "calendar" %}">Calendar</a></li>
-                <li class="{% nav_active 'jobs' 'active' %}"><a href="{% url "jobs" %}">Job Listings</a></li>
-                <li class="{% nav_active 'gallery' 'active' %}"><a href="{% url "gallery" %}">Gallery</a></li>
-                <li class="{% nav_active 'about' 'active' %}"><a href="{% url "about" %}">About</a></li>
-                <li class="{% nav_active 'contact' 'active' %}"><a href="{% url "contact" %}">Contact</a></li>
-            </ul>
-        </div>
+                <a href="/" class="navbar-brand" id="shpelogo">
+                    <img src="/static/img/nav_logo.png">
+                </a>
+            </div>
+
+            <div id="navbar-collapsable" class="navbar-collapse collapse" aria-expanded="false" style="height: 1px;">
+                <ul class="navbar-nav nav">
+                    <li class="{% nav_active 'index' 'active' %}"><a href="/">Home</a></li>
+                    <li class="{% nav_active 'membership' 'active' %}"><a href="{% url "membership" %}">Membership</a></li>
+                    <li class="{% nav_active 'calendar' 'active' %}"><a href="{% url "calendar" %}">Calendar</a></li>
+                    <li class="{% nav_active 'jobs' 'active' %}"><a href="{% url "jobs" %}">Job Listings</a></li>
+                    <li class="{% nav_active 'gallery' 'active' %}"><a href="{% url "gallery" %}">Gallery</a></li>
+                    <li class="{% nav_active 'about' 'active' %}"><a href="{% url "about" %}">About</a></li>
+                    <li class="{% nav_active 'contact' 'active' %}"><a href="{% url "contact" %}">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
     </div>
-</nav>
 
 {% block content %}
 {% endblock %}
