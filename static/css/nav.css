@@ -1,9 +1,13 @@
-/* ==================================================
-  Header Styling
+/* Header Styling
 ================================================== */
 #header {
   background: #fff;
   height: 70px;
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  z-index: 50;
+  border-bottom: 1px solid rgba(144, 144, 144, 0.56);
 }
 
 #header #logo {
@@ -174,7 +178,7 @@
 
 /* Mobile Nav Toggle */
 #mobile-nav-toggle {
-  /* position: fixed; */
+  position: fixed;
   right: 0;
   top: 0;
   z-index: 999;
