@@ -1058,3 +1058,20 @@ a.navigation {
 	background-color: rgba(12, 11, 11, 0.5);
 	min-height: 480px;
 }
+
+/* Responsive Google Calendar
+ =========================================== */ 
+.google-calendar {
+    position: relative;
+    height: 0;
+    width: 100%;
+    padding-bottom: 100% ;
+}
+  
+.google-calendar iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
