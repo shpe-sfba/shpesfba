@@ -14,6 +14,279 @@ h1, h2, h3, h4, h5, h6 {
      color: #4B4B4C; 
 }
 
+body.mobile-nav-active {
+    overflow: hidden;
+  }
+  
+  body.mobile-nav-active #mobile-nav {
+    left: 0;
+  }
+  
+  body.mobile-nav-active #mobile-nav-toggle {
+    color: #337ab7;
+  }
+  
+  /* Header Styling
+  ================================================== */
+  #header {
+    background: #fff;
+    height: 65px;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    z-index: 50;
+    border-bottom: 1px solid rgba(144, 144, 144, 0.56);
+  }
+  
+  #header #logo {
+    margin: 14px 25px 0 0;
+  }
+  
+  #header #logo img {
+    padding: 0;
+    margin: 0;
+    max-height: 40px;
+  }
+  
+  #header #logo-text {
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  @media (max-width: 768px) {
+    #header {
+      height: 50px;
+    }
+    #header #logo {
+      margin: 10px 0 0 0;
+    }
+    #header #logo img {
+      max-height: 30px;
+    }
+  }
+  
+  #header .social-nav {
+    margin-top: 15px;
+  }
+  
+  #header .social-nav a {
+    font-size: 24px;
+    margin-left: 15px;
+    color: rgba(144, 144, 144, 0.8);
+  }
+  
+  #header .social-nav a:hover {
+    color: rgba(51, 122, 183, 0.9);
+  }
+  
+  /* Navigation Menu
+  ================================================== */
+  .nav-menu, .nav-menu * {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .nav-menu ul {
+    position: absolute;
+    display: none;
+    top: 100%;
+    left: 0;
+    z-index: 99;
+  }
+  
+  .nav-menu li {
+    position: relative;
+    white-space: nowrap;
+  }
+  
+  .nav-menu > li {
+    float: left;
+  }
+  
+  .nav-menu li:hover > ul,
+  .nav-menu li.sfHover > ul {
+    display: block;
+  }
+  
+  .nav-menu ul ul {
+    top: 0;
+    left: 100%;
+  }
+  
+  .nav-menu ul li {
+    min-width: 180px;
+  }
+  
+  /* Nav Meu Container */
+  #nav-menu-container {
+    margin: 0;
+  }
+  
+  @media (max-width: 768px) {
+    #nav-menu-container {
+      display: none;
+    }
+  }
+  
+  /* Nav Meu Styling */
+  .nav-menu a {
+    padding: 22px 15px 18px 15px;
+    text-decoration: none;
+    display: inline-block;
+    color: #909090;
+    font-weight: 400;
+    font-size: 15px;
+    outline: none;
+  }
+  
+  .nav-menu a:hover, .nav-menu li:hover > a, .nav-menu .menu-active > a {
+    color: #337ab7;
+  }
+  
+  .nav-menu ul {
+    margin: 4px 0 0 15px;
+    -webkit-box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.08);
+    box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.08);
+  }
+  
+  .nav-menu ul li {
+    background: #fff;
+    border-top: 1px solid #f4f4f4;
+  }
+  
+  .nav-menu ul li:first-child {
+    border-top: 0;
+  }
+  
+  .nav-menu ul li:hover {
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+  }
+  
+  .nav-menu ul li a {
+    color: #909090;
+    -webkit-transition: none;
+    -o-transition: none;
+    transition: none;
+    padding: 10px 15px;
+  }
+  
+  .nav-menu ul li a:hover {
+    color: #337ab7;
+  }
+  
+  .nav-menu ul ul {
+    margin: 0;
+  }
+  
+  /* Mobile Nav Toggle */
+  #mobile-nav-toggle {
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 999;
+    margin: 8px 10px 0 0;
+    border: 0;
+    background: none;
+    font-size: 24px;
+    display: none;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  #mobile-nav-toggle i {
+    color: #337ab7;
+  }
+  
+  @media (max-width: 768px) {
+    #mobile-nav-toggle {
+      display: inline;
+    }
+  }
+  
+  /* Mobile Nav Styling */
+  #mobile-nav {
+    position: fixed;
+    top: 0;
+    padding-top: 18px;
+    bottom: 0;
+    z-index: 998;
+    background: rgba(255, 255, 255, 0.9);
+    left: -260px;
+    width: 260px;
+    overflow-y: auto;
+    -webkit-transition: 0.4s;
+    -o-transition: 0.4s;
+    transition: 0.4s;
+  }
+  
+  #mobile-nav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  
+  #mobile-nav ul li {
+    position: relative;
+  }
+  
+  #mobile-nav ul li a {
+    color: #909090;
+    font-size: 16px;
+    overflow: hidden;
+    padding: 10px 22px 10px 15px;
+    position: relative;
+    text-decoration: none;
+    width: 100%;
+    display: block;
+    outline: none;
+  }
+  
+  #mobile-nav ul li a:hover {
+    color: #337ab7;
+  }
+  
+  #mobile-nav ul li li {
+    padding-left: 30px;
+  }
+  
+  #mobile-nav ul .menu-has-children i {
+    position: absolute;
+    right: 0;
+    z-index: 99;
+    padding: 15px;
+    cursor: pointer;
+    color: #909090;
+  }
+  
+  #mobile-nav ul .menu-has-children i.fa-chevron-up {
+    color: #909090;
+  }
+  
+  #mobile-nav ul .menu-item-active {
+    color: #337ab7;
+  }
+  
+  #mobile-body-overly {
+    width: 100%;
+    height: 100%;
+    z-index: 997;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: rgba(255, 255, 255, 0.6);
+    display: none;
+  }
+  
+  
+
 #headline {
     background-color: rgba(12, 11, 11, 0.82);
     background-image: url('images/home_group.jpg');
@@ -38,25 +311,6 @@ h1, h2, h3, h4, h5, h6 {
     top: 25%;
 }
 
-#shpenavbar{
-    background-color: #FFF;
-    margin-bottom: 0;
-}
-
-#shpenavbar ul.navbar-nav li > a{
-    line-height: 50px;
-}
-
-#shpelogo{
-    display:block;
-    padding: 5px 5px 0 0;
-    width: 100px;
-    height: 100%;
-
-}
-#shpelogo > img{
-    width: 90%;
-}
 .social-link {
     line-height:30px;
     padding: 5px;
@@ -64,10 +318,8 @@ h1, h2, h3, h4, h5, h6 {
 .social-link img {
     margin-right: 10px;
 }
-.panel-heading.jobs-panel {
-    background-color: #d3d2d2;
-    color: #fff
-}
+
+
 
 .btn-rsvp {
     width: 140px;
@@ -488,8 +740,7 @@ h2 {
 }
 
 /* Footer
- ===========================================
-*/ 
+================================================== */
 footer {
     margin-top: 40px;
     padding-top:20px;
@@ -561,25 +812,8 @@ footer .buffer {
     font-size: 1.5rem
 }
 
-/* Navigation
- ===========================================
-*/ 
-.navbar-brand {
-    padding: 25px 0
-}
-
-.nav {
-    font-size: 16px
-}
-
-@media (min-width: 768px) {
-    .navbar .container-fluid {
-        width: 920px;
-        float: none;
-        margin: 0 auto
-    }
-}
-
+/* Officer Page
+================================================== */
 .officer-square {
     display: inline-block;
     position: relative;
@@ -616,6 +850,8 @@ footer .buffer {
     text-align: center
 }
 
+/* Jobs
+================================================== */
 .job-post {
     line-height: 20px;
 }
@@ -633,6 +869,11 @@ a.navigation {
 
 .job-form .checkbox label {
     font-weight: 700
+}
+
+.panel-heading.jobs-panel {
+    background-color: #d3d2d2;
+    color: #fff
 }
 
 .center-outer {
@@ -709,8 +950,7 @@ a.navigation {
 }
 
 /* Homepage Features
- ===========================================
-*/ 
+================================================== */
 .feature {
 	margin-top: 25px;
 }
@@ -738,8 +978,7 @@ a.navigation {
  }
 
 /* Custom Buttons
- ===========================================
-*/ 
+ =========================================== */ 
 .btn-shpe {
     border-radius: 0;
     background: none;
@@ -756,8 +995,7 @@ a.navigation {
 }
 
 /* Homepage Blue Chip Award Text
- ===========================================
-*/ 
+ =========================================== */ 
 .blue-chip {
   color: #4B4B4C;
   font-weight: 600;
@@ -777,8 +1015,7 @@ a.navigation {
 }
 
 /* Homepage Group Image and Leading Text
- ===========================================
-*/ 
+ =========================================== */ 
 .banner {
 	background: url('images/home_group2.jpg') no-repeat center top;
     background-size: cover;
