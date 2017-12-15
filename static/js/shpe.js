@@ -1,7 +1,4 @@
 $(document).ready(function () {
-    /* Enable tooltips */
-    $('[data-toggle="tooltip"]').tooltip();
-
     /* Membership Accordion */
     $('.collapse.in').prev('.panel-heading').addClass('active');
     $('#accordion, #bs-collapse').on('show.bs.collapse', function (a) {
@@ -17,12 +14,10 @@ $(document).ready(function () {
         $('body').append($mobile_nav);
         $('body').prepend('<button type="button" id="mobile-nav-toggle"><i class="fa fa-bars"></i></button>');
         $('body').append('<div id="mobile-body-overly"></div>');
-        $('#mobile-nav').find('.menu-has-children').prepend('<i class="fa fa-chevron-down"></i>');
 
         $(document).on('click', '.menu-has-children i', function (e) {
             $(this).next().toggleClass('menu-item-active');
             $(this).nextAll('ul').eq(0).slideToggle();
-            $(this).toggleClass("fa-chevron-up fa-chevron-down");
         });
 
         $(document).on('click', '#mobile-nav-toggle', function (e) {

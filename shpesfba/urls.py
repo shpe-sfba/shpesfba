@@ -8,10 +8,6 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),
-    url(r'^jobs/?$', RedirectView.as_view(url='/jobs/job-listings', permanent=False), name='jobs'),
-    url(r'^jobs/job-listings?$', views.job_listings, name='jobs.job-listings'),
-    url(r'^jobs/(?P<job_id>[0-9]+)/?$', views.job_detail, name='jobs.job-detail'),
-    url(r'^jobs/add-job/?$', views.add_job, name='jobs.add-job'),
     url(r'^membership/?$', views.membership, name='membership'),
     url(r'^contact/?$', views.contact, name='contact'),
     url(r'^gallery/?$', views.gallery, name='gallery'),
