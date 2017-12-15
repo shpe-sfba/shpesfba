@@ -8,7 +8,7 @@
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <title>{% block title %}{% endblock %} - SHPE SF Bay Area</title>
     <link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}"/>
-    <link rel="stylesheet" href="{% static "css/shpe.css" %}?v=2"/>
+    <link rel="stylesheet" href="{% static "css/shpe.css" %}?v=1"/>
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans|Candal|Alegreya+Sans">
     <link rel="stylesheet" href="/static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 
@@ -24,20 +24,10 @@
         </div>
         <nav id="nav-menu-container">
             <ul class="nav-menu">
-                <li class="{% nav_active 'about' 'active' %} menu-has-children"><a href="{% url 'about' %}">About <span class="caret hidden-xs"></span></a>
-                    <ul>
-                        <li><a href="{% url 'about.executive-board' %}">Executive Board</a></li>
-                        <li><a href="{% url 'about.awards' %}">Awards and Honors</a></li>
-                        <li><a href="{% url 'gallery' %}">Gallery</a></li>
-                        <li><a href="{% url 'about.past-events' %}">Past Events</a></li>
-                        <li><a href="{% url 'about.chapter' %}">Chapter History</a></li>
-                        <li><a href="{% url 'about.bylaws' %}">Bylaws</a></li>
-                        <li><a href="{% url 'about.shpe' %}">SHPE Inc.</a></li>
-                    </ul>
-                </li>
+                <li class="{% nav_active 'about' 'active' %} menu-has-children"><a href="{% url 'about' %}">About</a></li>
                 <li class="{% nav_active 'membership' 'active' %}"><a href="{% url 'membership' %}">Membership</a></li>
                 <li class="{% nav_active 'calendar' 'active' %}"><a href="{% url 'calendar' %}">Calendar</a></li>
-                <li class="{% nav_active 'jobs' 'active' %} hidden-sm"><a href="{% url 'jobs' %}">Job Listings</a></li>
+                <li> <a href="{% url 'gallery' %}">Gallery</a></li>
                 <li class="{% nav_active 'contact' 'active' %}"><a href="{% url 'contact' %}">Contact</a></li>
             </ul>
         </nav>
@@ -54,24 +44,51 @@
 {% block content %}
 {% endblock %}
 
-<footer role="footer" class="site-footer container-fluid">
-    <div class="row text-center">
-        <div class="col-xs-12">
-            <a class="social-link" href="https://www.facebook.com/groups/120819351271743/" target="_blank"><i class="fa fa-3x fa-facebook-official" aria-hidden="true"></i></a>
-            <a class="social-link" href="https://www.instagram.com/shpesfba/" target="_blank"><i class="fa fa-3x fa-instagram" aria-hidden="true"></i></a>
-            <a class="social-link" href="https://join.slack.com/t/shpe-sfba/shared_invite/MjI0OTQ2MDAxOTc0LTE1MDIyNDUxNTctMGRkZDRiYmJlNg" target="_blank"><i class="fa fa-3x fa-slack" aria-hidden="true"></i></a>
-            <a class="social-link" href="{% url "contact" %}" data-toggle="tooltip" title="Contact Us"><i class="fa fa-3x fa-envelope-o" aria-hidden="true"></i></a>
+<footer id="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 text-center">
+                <h5>About Us</h5>
+                <ul>
+                    <li><a href="{% url 'about' %}">What We Do</a></li>
+                    <li><a href="{% url 'membership' %}">Membership</a></li>
+                    <li><a href="{% url 'about.executive-board' %}">Executive Board</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-4 text-center">
+                <h5>Events</h5>
+                <ul>
+                    <li><a href="{% url 'calendar' %}">Calendar</a></li>
+                    <li><a href="{% url 'about.past-events' %}">Past Events</a></li>
+                </ul>
+            </div>
+            <div class="col-sm-4 text-center">
+                <h5>SHPE Links</h5>
+                <ul>
+                    <li><a href="http://www.shpe.org/" target="_blank">SHPE Inc.</a></li>
+                    <li><a href="http://shperegion1.org/" target="_blank">SHPE Region 1</a></li>
+                </ul>
+            </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-xs-6">
-            <p>Copyright &copy; SHPE SFBA <script>document.write(new Date().getFullYear());</script></p>
-        </div>
-        <div class="col-xs-6 text-right">
-                <p><a href="http://www.shpe.org/" target="_blank">SHPE Inc.</a>&nbsp;|&nbsp;
-                   <a href="https://www.shpeconnect.org" target="_blank">SHPE Connect</a>
-                </p>
-        </div>
+    <div class="social-networks">
+        <a class="facebook" href="https://www.facebook.com/groups/120819351271743/" target="_blank">
+            <i class="fa fa-facebook-official"></i>
+        </a>
+        <a class="slack" href="https://join.slack.com/t/shpe-sfba/shared_invite/MjI0OTQ2MDAxOTc0LTE1MDIyNDUxNTctMGRkZDRiYmJlNg"
+            target="_blank">
+            <i class="fa fa-slack" aria-hidden="true"></i>
+        </a>
+        <a class="instagram" href="https://www.instagram.com/shpesfba/" target="_blank">
+            <i class="fa fa-instagram" aria-hidden="true"></i>
+        </a>
+        <a class="youtube" href="https://www.youtube.com/channel/UC0QS07EGUIa1ZIsyjAJtBfg" target="_blank">
+            <i class="fa fa-youtube-play" aria-hidden="true"></i>
+        </a>
+        <a class="email" href="{% url 'contact' %}"><i class="fa fa-envelope" aria-hidden="true"></i></a>
+    </div>
+    <div class="footer-copyright">
+        <p>Copyright &copy; SHPE SFBA <script>document.write(new Date().getFullYear());</script></p>
     </div>
 </footer>
 

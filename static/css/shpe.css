@@ -1,12 +1,5 @@
-html {
-    overflow-y: scroll;
-    min-height: 100%;
-    position: relative;
-}
-
 body {
     font-family: 'Open Sans', sans-serif; 
-    margin-bottom: 140px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -310,16 +303,6 @@ body.mobile-nav-active {
     position: relative;
     top: 25%;
 }
-
-.social-link {
-    line-height:30px;
-    padding: 5px;
-}
-.social-link img {
-    margin-right: 10px;
-}
-
-
 
 .btn-rsvp {
     width: 140px;
@@ -741,7 +724,7 @@ h2 {
 
 /* Footer
 ================================================== */
-footer {
+/* footer {
     margin-top: 40px;
     padding-top:20px;
     padding-bottom: 20px;
@@ -810,7 +793,7 @@ footer .buffer {
 
 .footer-about p {
     font-size: 1.5rem
-}
+} */
 
 /* Officer Page
 ================================================== */
@@ -869,11 +852,6 @@ a.navigation {
 
 .job-form .checkbox label {
     font-weight: 700
-}
-
-.panel-heading.jobs-panel {
-    background-color: #d3d2d2;
-    color: #fff
 }
 
 .center-outer {
@@ -1074,4 +1052,93 @@ a.navigation {
     left: 0;
     width: 100%;
     height: 100%;
+}
+
+/* Footer
+ =========================================== */ 
+#footer {
+	background-color: #7c7c7c;
+	color:white;
+	margin-top: 80px;
+}
+
+#footer .footer-copyright {
+	background-color: #383737;
+	padding-top:  3px;
+	padding-bottom:  3px;
+	text-align: center;
+}
+
+#footer .footer-copyright p {
+	margin: 10px;
+	color: #ccc;
+}
+
+#footer ul {
+	list-style-type: none;
+    padding-left: 0;
+    line-height: 1.7;
+
+}
+
+#footer h5 {
+	font-size: 18px;
+    color: white;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+#footer a {
+	color:#d2d1d1;
+	text-decoration: none;
+}
+
+#footer a:hover, #footer a:focus {
+	text-decoration: none;
+	color:white;
+}
+
+#footer .social-networks {
+	text-align: center;
+	padding-top: 30px;
+	padding-bottom: 38px;
+}
+
+#footer .social-networks a {
+    font-size: 32px;
+    margin-right: 5px;
+    margin-left: 5px;
+    color: #f9f9f9;
+    padding: 10px;
+    transition: 0.2s;
+}
+
+#footer .social-networks a:hover {
+	text-decoration: none;
+}
+
+#footer .facebook:hover {
+	color:#225f94;
+}
+
+#footer .slack:hover {
+	color:#225f94;
+}
+
+#footer .instagram:hover {
+	color:#225f94;
+}
+
+#footer .youtube:hover {
+	color:#225f94;
+}
+
+#footer .email:hover {
+	color:#225f94;
+}
+
+@media screen and (max-width: 767px) {
+	#footer {
+		text-align: center;
+	}
 }

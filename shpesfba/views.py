@@ -28,36 +28,6 @@ def executive_board(request):
     }
     return render(request, 'shpesfba/officers.html', context)
 
-
-def job_listings(request):
-    dt = datetime.datetime.now().replace(hour=0, minute=0, second=0)
-    jobs = JobPosting.objects.filter(approved=True, expiration_date__gte=timezone.make_aware(dt)).order_by(
-        '-expiration_date')
-    context = {
-        'jobs': jobs
-    }
-    return render(request, 'shpesfba/jobs.job_listings.html', context)
-
-
-def job_detail(request, job_id):
-    job = get_object_or_404(JobPosting, pk=job_id)
-    return render(request, 'shpesfba/jobs.job_detail.html', {'job': job})
-
-
-def add_job(request):
-    if request.method == 'POST':
-        form = JobPostingForm(request.POST)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Job submitted successfully. Please give us a few days to review it for posting.',
-                             extra_tags='alert-success')
-            return redirect('jobs.add-job')
-    else:
-        form = JobPostingForm()
-
-    return render(request, 'shpesfba/jobs.add_job.html', {'form': form})
-
-
 def membership(request):
     memberships = Membership.objects.all()
     context = {
