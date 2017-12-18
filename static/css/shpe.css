@@ -913,14 +913,6 @@ a.navigation {
       clear:both;
 }
 
-#about-header {
-    background-image: url('images/everybody.jpeg');
-    height: 300px;
-  background-repeat: no-repeat;
-      background-position: top center;
-          background-size: cover;
-}
-
 .section-line {
 	width: 25px;
 	height: 3px;
