@@ -4,14 +4,11 @@ SHPE San Francisco Bay Area Website -- [www.shpesfba.org](http://www.shpesfba.or
 * Contributions by: Patricia Carranza
 
 # Contents
-* Installation
-  * MacOS
-  * Windows
- * Development
- * Deploying the Site
- * Django Admin Panel
+* Initial Setup
+* Development
+* Deploying the Site
 
-# Installation
+# Initial Setup
 1. Clone project
 `git clone https://github.com/shpe-sfba/shpesfba.git`
 2. Create a file named `.env` at the root of the project directory and add the following lines (get the real values from Luis/Patty).
@@ -22,8 +19,8 @@ export SMTP_USER='user@email.com'
 export SECRET_KEY='SUPER_SECRET_KEY'
 ```
 
-## MacOS
-3.Install python-virtualenv:
+## Python Environment Setup
+3. Install python-virtualenv:
 `sudo apt-get install python-virtualenv`
 
 4. Setup Python environment by running the following commands
@@ -37,18 +34,16 @@ python manage.py collectstatic
 python manage.py runserver
 ```
 
-## Windows
-
 # Development
-## MacOS
-Run the following commands and then navigate to localhost:8000
+Note: These commands have been tested with MacOS and Bash on Windows (Linux Subsytem on Windows).
+Run the following commands then navigate to localhost:8000
 ```
 source venv/bin/activate
 source .env
 python manage.py runserver
 ```
 Note:
-* While running the server any code changes made will be automatically reflected
+* While running the server any code changes will be automatically reflected, just refresh the page.
 * After making any changes to the models, run:
 ```
 python manage.py makemigrations
@@ -56,6 +51,6 @@ python manage.py migrate
 ```
 
 # Deploying the Site
-`./deploy.sh`
+Running the following script will handle all necessary operations to deploy the site. Make sure Debug=False in Settings.py.
 
-# Django Admin Panel
+`./deploy.sh`
