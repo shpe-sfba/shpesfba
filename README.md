@@ -33,6 +33,8 @@ python manage.py migrate
 python manage.py collectstatic
 python manage.py runserver
 ```
+Make sure to have Debug=True in Settings.py
+
 
 # Development
 Note: These commands have been tested with MacOS and Bash on Windows (Linux Subsytem on Windows).
