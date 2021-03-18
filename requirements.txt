@@ -1,4 +1,4 @@
 dj-database-url==0.4.1
 Django==1.10
-Pillow==3.4.1
+Pillow==8.1.1
 python-resize-image
